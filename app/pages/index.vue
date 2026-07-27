@@ -115,7 +115,7 @@ useSeoMeta({
         root: 'overflow-hidden',
         container: 'py-16 sm:py-20 lg:py-24 gap-10 sm:gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(28rem,0.9fr)]',
         headline: 'mb-4 text-sm',
-        title: 'max-w-[12ch] text-[clamp(2.75rem,5.5vw,4.5rem)] leading-[1.08] tracking-[-0.045em] text-balance',
+        title: 'text-[clamp(2.75rem,5.5vw,4.5rem)] leading-[1.08] tracking-[-0.045em]',
         description: 'mt-5 max-w-xl text-base/8 sm:text-lg/8',
         footer: 'mt-8'
       }"
@@ -190,7 +190,7 @@ useSeoMeta({
 
     <section class="home-section">
       <UContainer>
-        <header class="home-section__header">
+        <header class="home-section__header home-section__header--split">
           <p class="home-section__eyebrow">
             平台能力
           </p>
@@ -215,15 +215,17 @@ useSeoMeta({
                 class="size-6"
               />
             </span>
-            <h3>{{ capability.title }}</h3>
-            <p>{{ capability.description }}</p>
-            <span class="capability-card__link">
-              了解更多
-              <UIcon
-                name="i-lucide-arrow-right"
-                class="size-4 transition-transform group-hover:translate-x-1"
-              />
-            </span>
+            <div class="capability-card__content">
+              <h3>{{ capability.title }}</h3>
+              <p>{{ capability.description }}</p>
+              <span class="capability-card__link">
+                了解更多
+                <UIcon
+                  name="i-lucide-arrow-right"
+                  class="size-4 transition-transform group-hover:translate-x-1"
+                />
+              </span>
+            </div>
           </NuxtLink>
         </div>
       </UContainer>
@@ -231,7 +233,7 @@ useSeoMeta({
 
     <section class="home-section home-section--muted">
       <UContainer>
-        <header class="home-section__header">
+        <header class="home-section__header home-section__header--split">
           <p class="home-section__eyebrow">
             性能指标
           </p>
@@ -269,8 +271,8 @@ useSeoMeta({
             <p class="text-xs font-semibold tracking-[0.16em] text-emerald-300 uppercase">
               Optimization loop
             </p>
-            <h3 class="mt-3 text-2xl font-semibold tracking-tight text-white">
-              数据形成闭环，优化才有结果
+            <h3 class="mt-3 text-xl font-semibold tracking-tight text-white">
+              数据形成闭环，优化才有效
             </h3>
             <div class="mt-8 space-y-0">
               <div
@@ -379,7 +381,7 @@ window.PulseWatch.track('signup_completed', {
           ]"
           :ui="{
             container: 'py-12 sm:py-16 lg:grid-cols-[1fr_auto] lg:gap-12',
-            title: 'max-w-xl text-2xl sm:text-3xl leading-tight',
+            title: 'text-2xl sm:text-3xl leading-tight',
             description: 'mt-4 max-w-2xl text-base/7',
             links: 'lg:justify-end'
           }"

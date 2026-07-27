@@ -83,7 +83,7 @@ useSeoMeta({
       :ui="{
         container: 'py-16 sm:py-20 lg:py-24',
         headline: 'mb-4',
-        title: 'mx-auto max-w-[16ch] text-4xl sm:text-5xl leading-[1.15] tracking-[-0.04em] text-balance',
+        title: 'mx-auto text-4xl sm:text-5xl leading-[1.15] tracking-[-0.04em] sm:whitespace-nowrap',
         description: 'mx-auto mt-5 max-w-2xl text-base/8 sm:text-lg/8',
         footer: 'mt-8'
       }"
@@ -146,7 +146,7 @@ useSeoMeta({
 
     <section class="home-section home-section--muted">
       <UContainer>
-        <header class="home-section__header">
+        <header class="home-section__header home-section__header--split">
           <p class="home-section__eyebrow">
             付费路径
           </p>

@@ -3,23 +3,25 @@ import type { ContentNavigationItem } from '@nuxt/content'
 import { findPageHeadline } from '#ui-pro/utils/content'
 
 definePageMeta({
-  layout: 'docs'
+  layout: 'docs',
+  key: route => route.fullPath
 })
 
 const route = useRoute()
 const { toc } = useAppConfig()
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation', ref([]))
+const contentPath = route.path.replace(/\/+$/, '') || '/'
 
-const { data: page } = await useAsyncData(`doc-${route.path}`, () =>
-  queryCollection('docs').path(route.path).first()
+const { data: page } = await useAsyncData(`doc-${contentPath}`, () =>
+  queryCollection('docs').path(contentPath).first()
 )
 
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: '没有找到这个页面', fatal: true })
 }
 
-const { data: surround } = await useAsyncData(`surround-${route.path}`, () =>
-  queryCollectionItemSurroundings('docs', route.path, {
+const { data: surround } = await useAsyncData(`surround-${contentPath}`, () =>
+  queryCollectionItemSurroundings('docs', contentPath, {
     fields: ['description']
   })
 )
@@ -41,6 +43,9 @@ useSeoMeta({
       :description="page.description"
       :links="page.links"
       :headline="headline"
+      :ui="{
+        title: 'sm:whitespace-nowrap'
+      }"
     />
 
     <UPageBody>

@@ -1,0 +1,98 @@
+diff --git a/dist/module.cjs b/dist/module.cjs
+index c3ebae9888e42f0080667b6a6dd7d6465411450a..1cb36b471ca63529493d7af4b50b0d7fee11eac1 100644
+--- a/dist/module.cjs
++++ b/dist/module.cjs
+@@ -1590,18 +1590,19 @@ async function startSocketServer(nuxt, options, manifest) {
+       listener.server.on("upgrade", websocket.serve);
+     });
+   }
+-  async function broadcast(collection, key, insertQuery) {
++  async function broadcast(collection, key, insert) {
+     const removeQuery = `DELETE FROM ${collection.tableName} WHERE id = '${key.replace(/'/g, "''")}';`;
+     await db.exec(removeQuery);
+-    if (insertQuery) {
+-      await Promise.all(insertQuery.map((query) => db.exec(query)));
++    if (insert) {
++      await Promise.all(insert.queries.map((query) => db.exec(query)));
+     }
+     const collectionDump = manifest.dump[collection.name];
+     const keyIndex = collectionDump?.findIndex((item) => item.includes(`'${key}'`));
+     const indexToUpdate = keyIndex !== -1 ? keyIndex : collectionDump?.length;
+     const itemsToRemove = keyIndex === -1 ? 0 : 1;
+-    if (insertQuery) {
+-      collectionDump?.splice(indexToUpdate, itemsToRemove, ...insertQuery);
++    if (insert) {
++      const dumpQueries = insert.queries.map((query) => `${query} -- ${insert.hash}`);
++      collectionDump?.splice(indexToUpdate, itemsToRemove, ...dumpQueries);
+     } else {
+       collectionDump?.splice(indexToUpdate, itemsToRemove);
+     }
+@@ -1615,7 +1616,7 @@ async function startSocketServer(nuxt, options, manifest) {
+     websocket?.broadcast({
+       key,
+       collection: collection.name,
+-      queries: insertQuery ? [removeQuery, insertQuery] : [removeQuery]
++      queries: insert ? [removeQuery, ...insert.queries] : [removeQuery]
+     });
+   }
+   nuxt.hook("close", async () => {
+@@ -1676,8 +1677,8 @@ async function watchContents(nuxt, options, manifest, socket) {
+         }).then((result) => JSON.stringify(result));
+         db.insertDevelopmentCache(keyInCollection, checksum, parsedContent);
+       }
+-      const { queries: insertQuery } = generateCollectionInsert(collection, JSON.parse(parsedContent));
+-      await socket.broadcast(collection, keyInCollection, insertQuery);
++      const insert = generateCollectionInsert(collection, JSON.parse(parsedContent));
++      await socket.broadcast(collection, keyInCollection, insert);
+     }
+   }
+   async function onRemove(pathOrError) {
+diff --git a/dist/module.mjs b/dist/module.mjs
+index 9053c70e021681a31ada343c9056336e566478a5..dd3f5f1e6477f383813be13ad2b943ffeaa9fc10 100644
+--- a/dist/module.mjs
++++ b/dist/module.mjs
+@@ -1570,18 +1570,19 @@ async function startSocketServer(nuxt, options, manifest) {
+       listener.server.on("upgrade", websocket.serve);
+     });
+   }
+-  async function broadcast(collection, key, insertQuery) {
++  async function broadcast(collection, key, insert) {
+     const removeQuery = `DELETE FROM ${collection.tableName} WHERE id = '${key.replace(/'/g, "''")}';`;
+     await db.exec(removeQuery);
+-    if (insertQuery) {
+-      await Promise.all(insertQuery.map((query) => db.exec(query)));
++    if (insert) {
++      await Promise.all(insert.queries.map((query) => db.exec(query)));
+     }
+     const collectionDump = manifest.dump[collection.name];
+     const keyIndex = collectionDump?.findIndex((item) => item.includes(`'${key}'`));
+     const indexToUpdate = keyIndex !== -1 ? keyIndex : collectionDump?.length;
+     const itemsToRemove = keyIndex === -1 ? 0 : 1;
+-    if (insertQuery) {
+-      collectionDump?.splice(indexToUpdate, itemsToRemove, ...insertQuery);
++    if (insert) {
++      const dumpQueries = insert.queries.map((query) => `${query} -- ${insert.hash}`);
++      collectionDump?.splice(indexToUpdate, itemsToRemove, ...dumpQueries);
+     } else {
+       collectionDump?.splice(indexToUpdate, itemsToRemove);
+     }
+@@ -1595,7 +1596,7 @@ async function startSocketServer(nuxt, options, manifest) {
+     websocket?.broadcast({
+       key,
+       collection: collection.name,
+-      queries: insertQuery ? [removeQuery, insertQuery] : [removeQuery]
++      queries: insert ? [removeQuery, ...insert.queries] : [removeQuery]
+     });
+   }
+   nuxt.hook("close", async () => {
+@@ -1656,8 +1657,8 @@ async function watchContents(nuxt, options, manifest, socket) {
+         }).then((result) => JSON.stringify(result));
+         db.insertDevelopmentCache(keyInCollection, checksum, parsedContent);
+       }
+-      const { queries: insertQuery } = generateCollectionInsert(collection, JSON.parse(parsedContent));
+-      await socket.broadcast(collection, keyInCollection, insertQuery);
++      const insert = generateCollectionInsert(collection, JSON.parse(parsedContent));
++      await socket.broadcast(collection, keyInCollection, insert);
+     }
+   }
+   async function onRemove(pathOrError) {

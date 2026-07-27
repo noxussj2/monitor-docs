@@ -1,3 +1,23 @@
+const documentRoutes = [
+  '/getting-started',
+  '/getting-started/introduction',
+  '/getting-started/quick-start',
+  '/getting-started/concepts',
+  '/features',
+  '/features/overview',
+  '/features/performance',
+  '/features/errors',
+  '/features/analytics',
+  '/sdk',
+  '/sdk/installation',
+  '/sdk/configuration',
+  '/sdk/api',
+  '/sdk/privacy',
+  '/account',
+  '/account/projects',
+  '/account/quota'
+]
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -52,7 +72,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/', '/membership'],
+      routes: ['/', '/membership', ...documentRoutes],
       crawlLinks: true
     }
   },
