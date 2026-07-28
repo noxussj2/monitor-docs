@@ -83,7 +83,8 @@ provide('navigation', navigation)
           color="neutral"
           variant="outline"
           class="hidden sm:inline-flex"
-          to="/getting-started/quick-start"
+          to="https://apm.noxussj.top"
+          target="_blank"
         />
       </template>
 
