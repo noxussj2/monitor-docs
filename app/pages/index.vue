@@ -25,7 +25,7 @@ const capabilities = [
     index: '04',
     icon: 'i-lucide-mouse-pointer-click',
     title: '业务事件追踪',
-    description: '记录注册、购买和搜索等关键动作，连接技术体验与业务结果。',
+    description: '调用 track() 手动记录注册、购买和搜索等关键动作，连接技术体验与业务结果。',
     to: '/features/analytics'
   }
 ]
@@ -68,7 +68,7 @@ const workflow = [
   {
     index: '01',
     title: '接入',
-    description: '创建项目，复制 SDK 代码。'
+    description: '添加网站，复制 SDK 代码。'
   },
   {
     index: '02',
@@ -102,7 +102,7 @@ const sdkFeatures = [
 
 useSeoMeta({
   title: 'Web 应用性能与用户体验监控平台',
-  description: 'PulseWatch 帮助团队持续监控真实用户访问、Web 性能、前端错误和关键业务事件。'
+  description: 'PulseWatch 帮助个人开发者和团队持续监控真实用户访问、Web 性能、前端错误和关键业务事件。'
 })
 </script>
 
@@ -204,7 +204,7 @@ useSeoMeta({
                 一段代码，自动开始采集
               </h2>
               <p class="home-section__description">
-                复制代码并替换项目 Key，访问、性能与错误数据就会自动进入平台，无需逐项配置监听器。
+                复制代码并替换 API Key，访问、性能与错误数据就会自动进入平台，无需逐项配置监听器。
               </p>
             </header>
 
@@ -252,7 +252,7 @@ useSeoMeta({
               </div>
               <pre><code><span class="text-emerald-400">&lt;script</span>
   defer
-  src="https://your-monitor.com/monitor.min.js"
+  src="https://apm.noxussj.top/monitor.min.js"
   data-project-key="mk_your_project_key"
 <span class="text-emerald-400">&gt;&lt;/script&gt;</span>
 
@@ -402,14 +402,14 @@ window.PulseWatch.track('signup_completed', {
             <p class="home-section__eyebrow">
               免费开始
             </p>
-            <h2>从一个真实项目开始，看见用户正在经历什么</h2>
+            <h2>从一个真实网站开始，看见用户正在经历什么</h2>
             <p>
-              免费版可监控 1 个网站，每个项目每月包含 1 GB 免费额度。接入 SDK 后即可查看真实访问、性能与错误数据，再按实际需要决定是否升级 PRO。
+              免费版可监控 1 个网站，每个网站每月包含 1 GB 免费额度。接入 SDK 后即可查看真实访问、性能与错误数据，再按实际需要决定是否升级 PRO。
             </p>
           </div>
           <div class="home-closing__action">
             <UBadge
-              label="1 GB / 项目 / 月"
+              label="1 GB / 网站 / 月"
               icon="i-lucide-database"
               color="primary"
               variant="subtle"
