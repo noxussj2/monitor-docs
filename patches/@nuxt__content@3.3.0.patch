@@ -1,5 +1,5 @@
 diff --git a/dist/module.cjs b/dist/module.cjs
-index c3ebae9888e42f0080667b6a6dd7d6465411450a..1cb36b471ca63529493d7af4b50b0d7fee11eac1 100644
+index c3ebae9888e42f0080667b6a6dd7d6465411450a..50f0e7394cc1b098260bb190745f0bedcdc77ab3 100644
 --- a/dist/module.cjs
 +++ b/dist/module.cjs
 @@ -1590,18 +1590,19 @@ async function startSocketServer(nuxt, options, manifest) {
@@ -47,8 +47,17 @@ index c3ebae9888e42f0080667b6a6dd7d6465411450a..1cb36b471ca63529493d7af4b50b0d7f
      }
    }
    async function onRemove(pathOrError) {
+@@ -2445,7 +2446,7 @@ const module$1 = kit.defineNuxtModule({
+         route: "/api/content/:collection/query",
+         handler: resolver.resolve("./runtime/api/query.post")
+       });
+-      if (nuxt.options.dev) {
++      if (nuxt.options.dev && options.watch?.enabled) {
+         kit.addPlugin({ src: resolver.resolve("./runtime/plugins/websocket.dev"), mode: "client" });
+         await watchComponents(nuxt);
+         const socket = await startSocketServer(nuxt, options, manifest);
 diff --git a/dist/module.mjs b/dist/module.mjs
-index 9053c70e021681a31ada343c9056336e566478a5..dd3f5f1e6477f383813be13ad2b943ffeaa9fc10 100644
+index 9053c70e021681a31ada343c9056336e566478a5..35f830900287e649526acd830a92085079339db1 100644
 --- a/dist/module.mjs
 +++ b/dist/module.mjs
 @@ -1570,18 +1570,19 @@ async function startSocketServer(nuxt, options, manifest) {
@@ -96,3 +105,12 @@ index 9053c70e021681a31ada343c9056336e566478a5..dd3f5f1e6477f383813be13ad2b943ff
      }
    }
    async function onRemove(pathOrError) {
+@@ -2425,7 +2426,7 @@ const module = defineNuxtModule({
+         route: "/api/content/:collection/query",
+         handler: resolver.resolve("./runtime/api/query.post")
+       });
+-      if (nuxt.options.dev) {
++      if (nuxt.options.dev && options.watch?.enabled) {
+         addPlugin({ src: resolver.resolve("./runtime/plugins/websocket.dev"), mode: "client" });
+         await watchComponents(nuxt);
+         const socket = await startSocketServer(nuxt, options, manifest);

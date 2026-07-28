@@ -19,6 +19,7 @@
     "@nuxtjs/mdc": "0.15.0",
     "nuxt": "3.16.0",
     "nuxt-llms": "0.1.0",
+    "unist-util-visit": "5.1.0",
     "zod": "3.24.2"
   },
   "devDependencies": {

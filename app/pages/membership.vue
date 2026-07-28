@@ -8,6 +8,7 @@ const plans: PricingPlanProps[] = [
     price: '¥0',
     billingPeriod: '/ 永久',
     features: [
+      '可监控 1 个网站（1 个项目）',
       '每个项目每月 1 GB 数据额度',
       '访问、性能、错误和事件监控',
       '浏览器 SDK 与 SPA 自动追踪',
@@ -22,16 +23,14 @@ const plans: PricingPlanProps[] = [
   },
   {
     title: 'PRO 版',
-    description: '适合持续运营、需要更高月度额度和更完整分析能力的产品。',
+    description: '适合持续运营、需要监控更多网站和导出数据报表的产品。',
     price: '即将开放',
     badge: '推荐',
     highlight: true,
     features: [
       '更高的项目月度数据额度',
-      '更长的数据保留周期',
-      '高级筛选与性能洞察',
-      '异常告警与趋势分析',
-      '在线技术支持'
+      '可监控更多网站（更多项目）',
+      '数据报表下载'
     ],
     button: {
       label: '付费功能准备中',
@@ -56,7 +55,7 @@ const faqs = [
   },
   {
     label: '未来准备如何付费？',
-    content: 'PRO 版将围绕月度数据额度、数据保留周期和高级分析能力定价，计划支持按月或按年订阅。最终价格和规则以上线公告和购买页面为准。'
+    content: 'PRO 版将围绕三个能力定价：更高的项目月度数据额度、更多可监控网站数量，以及数据报表下载。计划支持按月或按年订阅，最终价格和规则以上线公告和购买页面为准。'
   },
   {
     label: '怎么减少额度消耗？',
@@ -66,7 +65,7 @@ const faqs = [
 
 useSeoMeta({
   title: '会员与数据额度',
-  description: '了解 PulseWatch 免费 1 GB 月度数据额度、未来会员方案和付费规划。'
+  description: '了解 PulseWatch 免费版 1 个监控网站、每月 1 GB 数据额度，以及未来的 PRO 付费方案。'
 })
 </script>
 
@@ -75,7 +74,7 @@ useSeoMeta({
     <UPageHero
       headline="会员与数据额度"
       title="先免费验证价值，再按需要升级"
-      description="每个项目当前默认享有每个自然月 1 GB 监控数据额度。付费能力尚未开放，不会自动扣费；未来可升级 PRO，扩展数据额度、保留周期和分析能力。"
+      description="免费版可监控 1 个网站，每个项目每月默认享有 1 GB 监控数据额度。付费能力尚未开放，不会自动扣费；未来可升级 PRO，获得更高数据额度、更多监控网站和数据报表下载能力。"
       :links="[
         { label: '免费开始接入', to: '/getting-started/quick-start', icon: 'i-lucide-rocket' },
         { label: '了解额度规则', to: '/account/quota', color: 'neutral', variant: 'outline' }
@@ -146,7 +145,7 @@ useSeoMeta({
 
     <section class="home-section home-section--muted">
       <UContainer>
-        <header class="home-section__header home-section__header--split">
+        <header class="home-section__header">
           <p class="home-section__eyebrow">
             付费路径
           </p>

@@ -16,7 +16,7 @@ overrides:
 
 patchedDependencies:
   '@nuxt/content@3.3.0':
-    hash: 4c680620fdd031cafc4964bcf071b462dc8b0c58bb73db877c39ede27a20f3f0
+    hash: 0b4851ad831e92549a546dc3d467106ec357c10a63d261adb00b14a385224059
     path: patches/@nuxt__content@3.3.0.patch
 
 importers:
@@ -31,7 +31,7 @@ importers:
         version: 1.2.28
       '@nuxt/content':
         specifier: 3.3.0
-        version: 3.3.0(patch_hash=4c680620fdd031cafc4964bcf071b462dc8b0c58bb73db877c39ede27a20f3f0)(magicast@0.3.5)(srvx@0.11.22)(typescript@5.8.2)
+        version: 3.3.0(patch_hash=0b4851ad831e92549a546dc3d467106ec357c10a63d261adb00b14a385224059)(magicast@0.3.5)(srvx@0.11.22)(typescript@5.8.2)
       '@nuxt/ui':
         specifier: 3.2.0
         version: 3.2.0(@babel/parser@7.26.10)(change-case@5.4.4)(db0@0.3.4(better-sqlite3@11.10.0))(embla-carousel@8.6.0)(ioredis@5.11.1)(magicast@0.3.5)(typescript@5.8.2)(vite@6.4.3(@types/node@22.13.10)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.89.2)(terser@5.39.0)(yaml@2.9.0))(vue-router@4.6.4(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))(zod@3.24.2)
@@ -47,6 +47,9 @@ importers:
       nuxt-llms:
         specifier: 0.1.0
         version: 0.1.0(magicast@0.3.5)
+      unist-util-visit:
+        specifier: 5.1.0
+        version: 5.1.0
       zod:
         specifier: 3.24.2
         version: 3.24.2
@@ -5507,14 +5510,8 @@ packages:
   unist-util-stringify-position@4.0.0:
     resolution: {integrity: sha512-0ASV06AAoKCDkS2+xw5RXJywruurpbC4JZSm7nr7MOt1ojAzvyyaO+UxZf18j8FCF6kmzCZKcAgN/yu2gm2XgQ==}
 
-  unist-util-visit-parents@6.0.1:
-    resolution: {integrity: sha512-L/PqWzfTP9lzzEa6CKs0k2nARxTdZduw3zyh8d2NVBnsyvHjSX4TWse388YrrQKbvI8w20fGjGlhgT96WwKykw==}
-
   unist-util-visit-parents@6.0.2:
     resolution: {integrity: sha512-goh1s1TBrqSqukSc8wrjwWhL0hiJxgA8m4kFxGlQ+8FYQ3C/m11FcTs4YYem7V664AhHVvgoQLk890Ssdsr2IQ==}
-
-  unist-util-visit@5.0.0:
-    resolution: {integrity: sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==}
 
   unist-util-visit@5.1.0:
     resolution: {integrity: sha512-m+vIdyeCOpdr/QeQCu2EzxX/ohgS8KbnPDgFni4dQsfSCtpz8UqDyY5GjRru8PDKuYn7Fq19j1CQ+nJSsGKOzg==}
@@ -7014,7 +7011,7 @@ snapshots:
       - magicast
       - srvx
 
-  '@nuxt/content@3.3.0(patch_hash=4c680620fdd031cafc4964bcf071b462dc8b0c58bb73db877c39ede27a20f3f0)(magicast@0.3.5)(srvx@0.11.22)(typescript@5.8.2)':
+  '@nuxt/content@3.3.0(patch_hash=0b4851ad831e92549a546dc3d467106ec357c10a63d261adb00b14a385224059)(magicast@0.3.5)(srvx@0.11.22)(typescript@5.8.2)':
     dependencies:
       '@nuxt/kit': 3.21.6(magicast@0.3.5)
       '@nuxtjs/mdc': 0.15.0(magicast@0.3.5)
@@ -7649,7 +7646,7 @@ snapshots:
       ufo: 1.6.4
       unified: 11.0.5
       unist-builder: 4.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
       unwasm: 0.3.9
       vfile: 6.0.3
     transitivePeerDependencies:
@@ -9991,7 +9988,7 @@ snapshots:
       mdast-util-to-hast: 13.2.0
       parse5: 7.2.1
       unist-util-position: 5.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
       vfile: 6.0.3
       web-namespaces: 2.0.1
       zwitch: 2.0.4
@@ -10025,7 +10022,7 @@ snapshots:
       rehype-minify-whitespace: 6.0.2
       trim-trailing-lines: 2.1.0
       unist-util-position: 5.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   hast-util-to-parse5@8.0.0:
     dependencies:
@@ -10579,7 +10576,7 @@ snapshots:
       mdast-util-to-string: 4.0.0
       micromark-util-classify-character: 2.0.1
       micromark-util-decode-string: 2.0.1
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
       zwitch: 2.0.4
 
   mdast-util-to-string@4.0.0:
@@ -11805,7 +11802,7 @@ snapshots:
       hast-util-is-element: 3.0.0
       is-absolute-url: 4.0.1
       space-separated-tokens: 2.0.2
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   rehype-minify-whitespace@6.0.2:
     dependencies:
@@ -11832,18 +11829,18 @@ snapshots:
       github-slugger: 2.0.0
       hast-util-heading-rank: 3.0.0
       hast-util-to-string: 3.0.1
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   rehype-sort-attribute-values@5.0.1:
     dependencies:
       '@types/hast': 3.0.4
       hast-util-is-element: 3.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   rehype-sort-attributes@5.0.1:
     dependencies:
       '@types/hast': 3.0.4
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   reka-ui@2.3.1(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)):
     dependencies:
@@ -12612,27 +12609,16 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  unist-util-visit-parents@6.0.1:
-    dependencies:
-      '@types/unist': 3.0.3
-      unist-util-is: 6.0.0
-
   unist-util-visit-parents@6.0.2:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.0
 
-  unist-util-visit@5.0.0:
-    dependencies:
-      '@types/unist': 3.0.3
-      unist-util-is: 6.0.0
-      unist-util-visit-parents: 6.0.2
-
   unist-util-visit@5.1.0:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.0
-      unist-util-visit-parents: 6.0.1
+      unist-util-visit-parents: 6.0.2
 
   unplugin-auto-import@19.3.0(@nuxt/kit@3.17.5(magicast@0.3.5))(@vueuse/core@13.9.0(vue@3.5.13(typescript@5.8.2))):
     dependencies:
