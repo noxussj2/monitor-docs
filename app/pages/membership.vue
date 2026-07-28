@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { PricingPlanProps } from '@nuxt/ui-pro/runtime/components/PricingPlan.vue'
 
+const contactModalOpen = ref(false)
+const wechatQrCodeSrc = '/wechat-qrcode.svg'
+
 const plans: PricingPlanProps[] = [
   {
     title: '免费版',
@@ -9,7 +12,7 @@ const plans: PricingPlanProps[] = [
     billingPeriod: '/ 永久',
     features: [
       '可监控 1 个网站',
-      '每个网站每月 1 GB 数据额度',
+      '每个网站每月 1 GB 接收量',
       '访问、性能、错误和事件监控',
       '浏览器 SDK 与 SPA 自动追踪',
       '基础趋势和环境分析'
@@ -24,38 +27,45 @@ const plans: PricingPlanProps[] = [
   {
     title: 'PRO 版',
     description: '适合持续运营、需要监控更多网站和导出数据报表的产品。',
-    price: '即将开放',
+    price: '联系开通',
     badge: '推荐',
     highlight: true,
     features: [
-      '更高的网站月度数据额度',
+      '更高的网站月度接收量',
       '可监控更多网站',
       '数据报表下载'
     ],
     button: {
-      label: '付费功能准备中',
-      disabled: true
+      label: '联系我开通会员',
+      icon: 'i-lucide-message-circle',
+      onClick: () => {
+        contactModalOpen.value = true
+      }
     },
-    terms: '正式价格、额度和开通时间以后续公告为准'
+    terms: '扫码添加微信，确认账号和需求后人工开通'
   }
 ]
 
 const faqs = [
   {
-    label: '免费的 1 GB 是怎么计算的？',
-    content: '当前每个监控网站默认拥有每个自然月 1 GB 监控数据额度。页面访问、性能、错误和自定义事件四类已接收数据按实际记录大小累计，次月重新开始计算。'
+    label: '免费的 1 GB 接收量是怎么计算的？',
+    content: '当前每个监控网站默认拥有每个自然月 1 GB 免费接收量。页面访问、性能、错误和自定义事件四类被服务端接收的数据，都会按实际大小累计，次月重新开始计算。'
   },
   {
-    label: '当月额度用完后会发生什么？',
-    content: '平台会停止接收该网站新的监控数据，避免产生不可预期费用；网站配置和历史数据不会因此删除。进入下个自然月或未来升级额度后可以继续接收。'
+    label: '当月接收量用完后会发生什么？',
+    content: '平台会停止接收该网站新的监控数据，避免产生不可预期费用；网站配置和历史数据不会因此删除。进入下个自然月或升级更高接收量后可以继续接收。'
+  },
+  {
+    label: '清空数据会恢复当月接收量吗？',
+    content: '不会。清空数据只删除历史记录和报表展示，不会返还当月已经接收的数据量。每月接收量会在下个自然月自动重置。'
   },
   {
     label: '现在会自动扣费吗？',
-    content: '不会。付费能力尚未开放，当前没有自动扣费或隐藏费用。未来上线付费功能时，会先展示明确的价格、额度、周期和确认步骤。'
+    content: '不会。当前采用人工联系开通方式，不会自动扣费，也不会产生隐藏费用。确认价格、接收量和周期后，再由你主动完成付款。'
   },
   {
-    label: '未来准备如何付费？',
-    content: 'PRO 版将围绕三个能力定价：更高的网站月度数据额度、更多可监控网站数量，以及数据报表下载。计划支持按月或按年订阅，最终价格和规则以上线公告和购买页面为准。'
+    label: '怎么开通 PRO？',
+    content: '点击“联系我开通会员”并扫码添加微信，说明你的注册邮箱、需要监控的网站数量和预计月度接收量。确认付款后，将人工为账号开通 PRO 权益。'
   },
   {
     label: '怎么减少额度消耗？',
@@ -64,20 +74,20 @@ const faqs = [
 ]
 
 useSeoMeta({
-  title: '会员与数据额度',
-  description: '了解 PulseWatch 免费版 1 个监控网站、每月 1 GB 数据额度，以及未来的 PRO 付费方案。'
+  title: '会员与接收量',
+  description: '了解 PulseWatch 免费版 1 个监控网站、每月 1 GB 接收量，以及 PRO 付费方案。'
 })
 </script>
 
 <template>
   <div>
     <UPageHero
-      headline="会员与数据额度"
+      headline="会员与接收量"
       title="先免费验证价值，再按需要升级"
-      description="免费版可监控 1 个网站，每个网站每月默认享有 1 GB 监控数据额度。付费能力尚未开放，不会自动扣费；未来可升级 PRO，获得更高数据额度、更多监控网站和数据报表下载能力。"
+      description="免费版可监控 1 个网站，每个网站每月默认享有 1 GB 接收量。接收量按服务端实际接收的数据大小累计，手动清空历史数据不会返还当月接收量；需要更高接收量、更多监控网站或数据报表下载时，可以联系人工开通 PRO。"
       :links="[
         { label: '免费开始接入', to: '/getting-started/quick-start', icon: 'i-lucide-rocket' },
-        { label: '了解额度规则', to: '/account/quota', color: 'neutral', variant: 'outline' }
+        { label: '了解接收量规则', to: '/account/quota', color: 'neutral', variant: 'outline' }
       ]"
       :ui="{
         container: 'py-16 sm:py-20 lg:py-24',
@@ -89,7 +99,7 @@ useSeoMeta({
     >
       <template #headline>
         <UBadge
-          label="当前免费 · 无自动扣费"
+          label="当前免费 · PRO 可联系开通"
           color="primary"
           variant="subtle"
           size="lg"
@@ -110,10 +120,10 @@ useSeoMeta({
             class="size-6 text-primary"
           />
           <h2 class="mt-3 font-semibold text-highlighted">
-            自然月额度
+            自然月接收量
           </h2>
           <p class="mt-2 text-sm leading-6 text-muted">
-            用量按北京时间自然月统计，新的月份重新开始累计。
+            接收量按北京时间自然月统计，新的月份重新开始累计。
           </p>
         </div>
         <div>
@@ -125,7 +135,7 @@ useSeoMeta({
             费用可控
           </h2>
           <p class="mt-2 text-sm leading-6 text-muted">
-            达到额度后停止接收新数据，不会因为超量产生未经确认的费用。
+            达到接收量上限后停止接收新数据，不会因为超量产生未经确认的费用。
           </p>
         </div>
         <div>
@@ -134,10 +144,10 @@ useSeoMeta({
             class="size-6 text-primary"
           />
           <h2 class="mt-3 font-semibold text-highlighted">
-            数据不被清空
+            重置不返还
           </h2>
           <p class="mt-2 text-sm leading-6 text-muted">
-            额度耗尽不会删除网站配置和已有历史记录，只暂停新数据写入。
+            清空历史数据不会恢复当月已使用接收量，接收量会在下个自然月重置。
           </p>
         </div>
       </div>
@@ -153,13 +163,13 @@ useSeoMeta({
             升级 PRO，过程简单透明
           </h2>
           <p class="home-section__description">
-            付费能力上线后，可以在控制台查看用量、确认价格与周期，再主动完成升级。下面是计划中的流程，不代表已经开放交易。
+            你可以先在控制台查看本月接收量，再联系确认适合的接收量和周期。付款确认后，将为你的账号人工开通 PRO 权益。
           </p>
         </header>
 
         <div class="grid gap-px overflow-hidden rounded-2xl border border-default bg-default sm:grid-cols-2 lg:grid-cols-4">
           <div
-            v-for="(step, index) in ['查看本月用量', '选择 PRO 版本', '确认价格与周期', '付款后即时扩容']"
+            v-for="(step, index) in ['查看本月接收量', '选择 PRO 版本', '确认价格与周期', '付款后提升接收量']"
             :key="step"
             class="min-h-32 bg-default p-6"
           >
@@ -183,7 +193,7 @@ useSeoMeta({
               关于额度与付费
             </h2>
             <p class="home-section__description">
-              当前免费、不会自动扣费。正式开放 PRO 前，我们会先公布完整价格和规则。
+              当前免费、不会自动扣费。PRO 采用人工确认后开通，价格、接收量和周期会在付款前说明清楚。
             </p>
           </header>
           <UAccordion
@@ -193,5 +203,38 @@ useSeoMeta({
         </div>
       </UContainer>
     </section>
+
+    <UModal
+      v-model:open="contactModalOpen"
+      title="联系开通 PRO 会员"
+      description="扫码添加微信，发送你的注册邮箱和需要开通的接收量。"
+      :ui="{ content: 'sm:max-w-md' }"
+    >
+      <template #body>
+        <div class="flex flex-col items-center text-center">
+          <div class="rounded-lg border border-default bg-default p-4">
+            <img
+              :src="wechatQrCodeSrc"
+              alt="微信联系二维码"
+              class="size-64"
+            >
+          </div>
+          <p class="mt-5 text-sm leading-6 text-muted">
+            添加后请备注 PulseWatch PRO，并发送注册邮箱、需要监控的网站数量和预计月度接收量。
+          </p>
+        </div>
+      </template>
+
+      <template #footer>
+        <div class="flex w-full justify-end">
+          <UButton
+            label="关闭"
+            color="neutral"
+            variant="outline"
+            @click="contactModalOpen = false"
+          />
+        </div>
+      </template>
+    </UModal>
   </div>
 </template>
