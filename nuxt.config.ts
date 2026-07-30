@@ -62,7 +62,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+      monitorSdkUrl: process.env.NUXT_PUBLIC_MONITOR_SDK_URL || 'https://apm.noxussj.top/monitor.min.js'
     }
   },
 

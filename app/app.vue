@@ -38,7 +38,7 @@ useHead({
   script: [
     {
       'defer': true,
-      'src': 'http://localhost:3000/monitor.min.js',
+      'src': config.public.monitorSdkUrl,
       'data-project-key': 'mk_4850bba5f668775b0e6d21e28ba5bbc3fd234b3ba288f8b0'
     }
   ],
