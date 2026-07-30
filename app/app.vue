@@ -19,12 +19,29 @@ const mainNavigation = [
   { label: '会员', icon: 'i-lucide-crown', to: '/membership' }
 ]
 
+const { trackEvent } = useMonitorTracking()
+
+function trackEnterConsole() {
+  void trackEvent('docs_enter_console', {
+    operation: '进入控制台',
+    target: 'admin_console',
+    url: 'https://apm.noxussj.top'
+  })
+}
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'theme-color', content: '#00a155' }
   ],
   link: [{ rel: 'icon', href: '/favicon.ico' }],
+  script: [
+    {
+      'defer': true,
+      'src': 'http://localhost:3000/monitor.min.js',
+      'data-project-key': 'mk_4850bba5f668775b0e6d21e28ba5bbc3fd234b3ba288f8b0'
+    }
+  ],
   htmlAttrs: {
     lang: 'zh-CN'
   }
@@ -85,6 +102,7 @@ provide('navigation', navigation)
           class="hidden sm:inline-flex"
           to="https://apm.noxussj.top"
           target="_blank"
+          @click="trackEnterConsole"
         />
       </template>
 
