@@ -55,6 +55,11 @@ export default defineNuxtConfig({
     fonts: false
   },
 
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark'
+  },
+
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
