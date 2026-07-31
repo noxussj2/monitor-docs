@@ -404,12 +404,12 @@ window.PulseWatch.track('signup_completed', {
             </p>
             <h2>从一个真实网站开始，看见用户正在经历什么</h2>
             <p>
-              免费版可监控 1 个网站，每个网站每月包含 1 GB 免费接收量。接入 SDK 后即可查看真实访问、性能与错误数据，再按实际需要决定是否升级 PRO。
+              免费版可监控 1 个网站，账号每月包含 200 MB 上下文 data 接收量和 3000 次事件触发。接入 SDK 后即可查看真实访问、性能与错误数据，再按实际需要决定是否升级 PRO。
             </p>
           </div>
           <div class="home-closing__action">
             <UBadge
-              label="1 GB 接收量 / 网站 / 月"
+              label="200 MB data · 3000 次事件 / 月"
               icon="i-lucide-database"
               color="primary"
               variant="subtle"
