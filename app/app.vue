@@ -1,8 +1,7 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const { locale, t } = useI18n()
+const { locale, setLocale, t } = useI18n()
 const localePath = useLocalePath()
-const switchLocalePath = useSwitchLocalePath()
 const localeHead = useLocaleHead({ seo: true })
 const docsCollection = useDocsCollection()
 
@@ -56,7 +55,7 @@ const availableLocales = [
 const languageItems = computed(() => availableLocales.map(item => ({
   label: item.label,
   icon: item.code === locale.value ? 'i-lucide-check' : undefined,
-  onSelect: () => navigateTo(switchLocalePath(item.code))
+  onSelect: () => void setLocale(item.code)
 })))
 
 const { trackEvent } = useMonitorTracking()

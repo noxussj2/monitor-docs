@@ -18,12 +18,6 @@ const documentRoutes = [
   '/account/quota'
 ]
 
-const localizedDocumentRoutes = documentRoutes.flatMap(route => [
-  route,
-  `/zh-MO${route}`,
-  `/en${route}`
-])
-
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -91,11 +85,7 @@ export default defineNuxtConfig({
       routes: [
         '/',
         '/membership',
-        '/zh-MO',
-        '/zh-MO/membership',
-        '/en',
-        '/en/membership',
-        ...localizedDocumentRoutes
+        ...documentRoutes
       ],
       crawlLinks: true,
       concurrency: 4
@@ -114,7 +104,7 @@ export default defineNuxtConfig({
   i18n: {
     baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     defaultLocale: 'zh-CN',
-    strategy: 'prefix_except_default',
+    strategy: 'no_prefix',
     langDir: 'locales',
     locales: [
       {
