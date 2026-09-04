@@ -1,5 +1,5 @@
 <script setup lang="ts">
-await navigateTo('/sdk/installation', { replace: true })
+await navigateTo(useLocalePath()('/sdk/installation'), { replace: true })
 </script>
 
 <template>

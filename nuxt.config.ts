@@ -18,9 +18,16 @@ const documentRoutes = [
   '/account/quota'
 ]
 
+const localizedDocumentRoutes = documentRoutes.flatMap(route => [
+  route,
+  `/zh-MO${route}`,
+  `/en${route}`
+])
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
+    '@nuxtjs/i18n',
     '@nuxt/ui-pro',
     '@nuxt/content',
     'nuxt-llms'
@@ -31,6 +38,11 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark'
+  },
 
   content: {
     watch: {
@@ -55,11 +67,6 @@ export default defineNuxtConfig({
     fonts: false
   },
 
-  colorMode: {
-    preference: 'dark',
-    fallback: 'dark'
-  },
-
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
@@ -81,8 +88,17 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/', '/membership', ...documentRoutes],
-      crawlLinks: true
+      routes: [
+        '/',
+        '/membership',
+        '/zh-MO',
+        '/zh-MO/membership',
+        '/en',
+        '/en/membership',
+        ...localizedDocumentRoutes
+      ],
+      crawlLinks: true,
+      concurrency: 4
     }
   },
 
@@ -92,6 +108,42 @@ export default defineNuxtConfig({
         commaDangle: 'never',
         braceStyle: '1tbs'
       }
+    }
+  },
+
+  i18n: {
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    defaultLocale: 'zh-CN',
+    strategy: 'prefix_except_default',
+    langDir: 'locales',
+    locales: [
+      {
+        code: 'zh-CN',
+        name: '简体中文',
+        language: 'zh-CN',
+        file: 'zh-CN.json'
+      },
+      {
+        code: 'zh-MO',
+        name: '繁體中文',
+        language: 'zh-MO',
+        file: 'zh-MO.json'
+      },
+      {
+        code: 'en',
+        name: 'English',
+        language: 'en',
+        file: 'en.json'
+      }
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'pulsewatch_docs_locale',
+      redirectOn: 'root',
+      fallbackLocale: 'zh-CN'
+    },
+    bundle: {
+      optimizeTranslationDirective: false
     }
   },
 
@@ -110,17 +162,17 @@ export default defineNuxtConfig({
     sections: [
       {
         title: '开始使用',
-        contentCollection: 'docs',
+        contentCollection: 'docs_zh_cn',
         contentFilters: [{ field: 'path', operator: 'LIKE', value: '/getting-started%' }]
       },
       {
         title: '产品能力',
-        contentCollection: 'docs',
+        contentCollection: 'docs_zh_cn',
         contentFilters: [{ field: 'path', operator: 'LIKE', value: '/features%' }]
       },
       {
         title: 'SDK 接入',
-        contentCollection: 'docs',
+        contentCollection: 'docs_zh_cn',
         contentFilters: [{ field: 'path', operator: 'LIKE', value: '/sdk%' }]
       }
     ]

@@ -1,20 +1,39 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 
+const docsSchema = z.object({
+  links: z.array(z.object({
+    label: z.string(),
+    icon: z.string(),
+    to: z.string(),
+    target: z.string().optional()
+  })).optional()
+})
+
 export default defineContentConfig({
   collections: {
-    docs: defineCollection({
+    docs_zh_cn: defineCollection({
       type: 'page',
       source: {
-        include: '**'
+        include: '**',
+        exclude: ['zh-MO/**', 'en/**']
       },
-      schema: z.object({
-        links: z.array(z.object({
-          label: z.string(),
-          icon: z.string(),
-          to: z.string(),
-          target: z.string().optional()
-        })).optional()
-      })
+      schema: docsSchema
+    }),
+    docs_zh_mo: defineCollection({
+      type: 'page',
+      source: {
+        include: 'zh-MO/**',
+        prefix: ''
+      },
+      schema: docsSchema
+    }),
+    docs_en: defineCollection({
+      type: 'page',
+      source: {
+        include: 'en/**',
+        prefix: ''
+      },
+      schema: docsSchema
     })
   }
 })

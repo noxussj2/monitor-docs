@@ -8,23 +8,47 @@ definePageMeta({
 })
 
 const route = useRoute()
-const { toc } = useAppConfig()
+const { locale, t } = useI18n()
+const localePath = useLocalePath()
+const docsCollection = useDocsCollection()
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation', ref([]))
-const contentPath = route.path.replace(/\/+$/, '') || '/'
+const slug = Array.isArray(route.params.slug)
+  ? route.params.slug.join('/')
+  : String(route.params.slug || '')
+const contentPath = `/${slug}`.replace(/\/+$/, '') || '/'
 
-const { data: page } = await useAsyncData(`doc-${contentPath}`, () =>
-  queryCollection('docs').path(contentPath).first()
+const { data: page } = await useAsyncData(`doc-${locale.value}-${contentPath}`, () =>
+  queryCollection(docsCollection.value).path(contentPath).first()
 )
 
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: '没有找到这个页面', fatal: true })
+  throw createError({ statusCode: 404, statusMessage: t('errors.notFound'), fatal: true })
 }
 
-const { data: surround } = await useAsyncData(`surround-${contentPath}`, () =>
-  queryCollectionItemSurroundings('docs', contentPath, {
+const { data: surround } = await useAsyncData(`surround-${locale.value}-${contentPath}`, () =>
+  queryCollectionItemSurroundings(docsCollection.value, contentPath, {
     fields: ['description']
   })
 )
+
+const localizedSurround = computed(() => (
+  surround.value as Array<ContentNavigationItem | null> | null
+)?.map(item => item
+  ? { ...item, path: localePath(item.path) }
+  : null)) as Ref<ContentNavigationItem[] | undefined>
+
+const helpLinks = computed(() => [
+  {
+    icon: 'i-lucide-circle-help',
+    label: t('docs.quickStart'),
+    to: localePath('/getting-started/quick-start')
+  },
+  {
+    icon: 'i-lucide-code-xml',
+    label: t('docs.sdkGuide'),
+    to: localePath('/sdk/installation')
+  }
+])
 
 const headline = computed(() => findPageHeadline(navigation.value, page.value))
 
@@ -52,7 +76,7 @@ useSeoMeta({
       <ContentRenderer :value="page" />
 
       <USeparator v-if="surround?.length" />
-      <UContentSurround :surround="surround" />
+      <UContentSurround :surround="localizedSurround" />
     </UPageBody>
 
     <template
@@ -60,15 +84,15 @@ useSeoMeta({
       #right
     >
       <UContentToc
-        :title="toc?.title"
+        :title="t('docs.toc')"
         :links="page.body.toc.links"
       >
         <template #bottom>
           <div class="hidden space-y-6 lg:block">
             <USeparator type="dashed" />
             <UPageLinks
-              :title="toc?.bottom?.title"
-              :links="toc?.bottom?.links"
+              :title="t('docs.help')"
+              :links="helpLinks"
             />
           </div>
         </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-await navigateTo('/features/overview', { replace: true })
+await navigateTo(useLocalePath()('/features/overview'), { replace: true })
 </script>
 
 <template>

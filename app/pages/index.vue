@@ -1,108 +1,111 @@
 <script setup lang="ts">
-const capabilities = [
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+const capabilities = computed(() => [
   {
     index: '01',
     icon: 'i-lucide-chart-no-axes-combined',
-    title: '访问与用户洞察',
-    description: '从访问趋势、来源、地域和设备，理解真实用户如何使用产品。',
-    to: '/features/analytics'
+    title: t('home.capabilities.analyticsTitle'),
+    description: t('home.capabilities.analyticsDescription'),
+    to: localePath('/features/analytics')
   },
   {
     index: '02',
     icon: 'i-lucide-gauge',
-    title: '真实用户性能',
-    description: '持续观察核心体验指标，发现加载慢、交互卡顿和页面跳动。',
-    to: '/features/performance'
+    title: t('home.capabilities.performanceTitle'),
+    description: t('home.capabilities.performanceDescription'),
+    to: localePath('/features/performance')
   },
   {
     index: '03',
     icon: 'i-lucide-bug',
-    title: '前端错误监控',
-    description: '自动捕获运行时、Promise、资源和接口错误，还原问题现场。',
-    to: '/features/errors'
+    title: t('home.capabilities.errorsTitle'),
+    description: t('home.capabilities.errorsDescription'),
+    to: localePath('/features/errors')
   },
   {
     index: '04',
     icon: 'i-lucide-mouse-pointer-click',
-    title: '业务事件追踪',
-    description: '调用 track() 手动记录注册、购买和搜索等关键动作，连接技术体验与业务结果。',
-    to: '/features/analytics'
+    title: t('home.capabilities.eventsTitle'),
+    description: t('home.capabilities.eventsDescription'),
+    to: localePath('/features/analytics')
   }
-]
+])
 
-const vitalMetrics = [
-  { name: 'LCP', label: '主要内容出现速度', value: '≤ 2.5s', width: '82%' },
-  { name: 'INP', label: '交互响应速度', value: '≤ 200ms', width: '74%' },
-  { name: 'CLS', label: '页面视觉稳定性', value: '≤ 0.1', width: '90%' },
-  { name: 'TTFB', label: '服务器首字节速度', value: '越低越好', width: '68%' }
-]
+const vitalMetrics = computed(() => [
+  { name: 'LCP', label: t('home.metrics.lcp'), value: '≤ 2.5s', width: '82%' },
+  { name: 'INP', label: t('home.metrics.inp'), value: '≤ 200ms', width: '74%' },
+  { name: 'CLS', label: t('home.metrics.cls'), value: '≤ 0.1', width: '90%' },
+  { name: 'TTFB', label: t('home.metrics.ttfb'), value: t('home.metrics.lower'), width: '68%' }
+])
 
-const performanceGroups = [
+const performanceGroups = computed(() => [
   {
     icon: 'i-lucide-image',
     metrics: 'LCP / FCP',
-    title: '内容出现',
-    description: '判断页面何时给出反馈，以及主要内容什么时候真正可见。'
+    title: t('home.performance.contentTitle'),
+    description: t('home.performance.contentDescription')
   },
   {
     icon: 'i-lucide-mouse-pointer-2',
     metrics: 'INP / TBT',
-    title: '交互响应',
-    description: '发现主线程阻塞和交互卡顿，定位过重的 JavaScript。'
+    title: t('home.performance.interactionTitle'),
+    description: t('home.performance.interactionDescription')
   },
   {
     icon: 'i-lucide-layout-template',
     metrics: 'CLS',
-    title: '视觉稳定',
-    description: '识别图片、广告和异步内容造成的意外布局移动。'
+    title: t('home.performance.stabilityTitle'),
+    description: t('home.performance.stabilityDescription')
   },
   {
     icon: 'i-lucide-server',
     metrics: 'TTFB',
-    title: '服务响应',
-    description: '分辨问题来自服务端、网络链路，还是浏览器渲染。'
+    title: t('home.performance.serverTitle'),
+    description: t('home.performance.serverDescription')
   }
-]
+])
 
-const workflow = [
+const workflow = computed(() => [
   {
     index: '01',
-    title: '接入',
-    description: '添加网站，复制 SDK 代码。'
+    title: t('home.performance.connect'),
+    description: t('home.performance.connectDescription')
   },
   {
     index: '02',
-    title: '观察',
-    description: '按页面与环境确认影响范围。'
+    title: t('home.performance.observe'),
+    description: t('home.performance.observeDescription')
   },
   {
     index: '03',
-    title: '优化',
-    description: '修复问题，用新数据验证结果。'
+    title: t('home.performance.optimize'),
+    description: t('home.performance.optimizeDescription')
   }
-]
+])
 
-const sdkFeatures = [
+const sdkFeatures = computed(() => [
   {
     icon: 'i-lucide-zap',
-    title: '自动采集',
-    description: '访问、性能与错误无需逐项编写监听代码。'
+    title: t('home.sdk.autoTitle'),
+    description: t('home.sdk.autoDescription')
   },
   {
     icon: 'i-lucide-route',
-    title: 'SPA 路由识别',
-    description: '路由变化时自动建立新的页面体验上下文。'
+    title: t('home.sdk.spaTitle'),
+    description: t('home.sdk.spaDescription')
   },
   {
     icon: 'i-lucide-shield-check',
-    title: '隐私优先',
-    description: '默认不采集输入值、密码、Cookie 和页面正文。'
+    title: t('home.sdk.privacyTitle'),
+    description: t('home.sdk.privacyDescription')
   }
-]
+])
 
 useSeoMeta({
-  title: 'Web 应用性能与用户体验监控平台',
-  description: 'PulseWatch 帮助个人开发者和团队持续监控真实用户访问、Web 性能、前端错误和关键业务事件。'
+  title: () => t('home.seoTitle'),
+  description: () => t('home.seoDescription')
 })
 </script>
 
@@ -110,17 +113,17 @@ useSeoMeta({
   <div>
     <UPageHero
       orientation="horizontal"
-      headline="真实用户监控 · RUM"
+      :headline="t('home.hero.headline')"
       :links="[
-        { label: '5 分钟快速接入', to: '/getting-started/quick-start', icon: 'i-lucide-rocket' },
-        { label: '阅读 SDK 文档', to: '/sdk/installation', color: 'neutral', variant: 'outline', trailingIcon: 'i-lucide-arrow-right' }
+        { label: t('home.hero.quickStart'), to: localePath('/getting-started/quick-start'), icon: 'i-lucide-rocket' },
+        { label: t('home.hero.readSdk'), to: localePath('/sdk/installation'), color: 'neutral', variant: 'outline', trailingIcon: 'i-lucide-arrow-right' }
       ]"
       :ui="{
         root: 'overflow-hidden',
         container: 'py-14 sm:py-18 lg:py-22 gap-10 sm:gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(25rem,0.88fr)]',
         headline: 'mb-4 text-sm',
         title: 'text-[clamp(2.65rem,5vw,4rem)] leading-[1.08] tracking-[-0.045em]',
-        description: 'mt-5 max-w-xl text-base/8 sm:text-lg/8',
+        description: 'mt-5 max-w-[34rem] text-base/8 sm:text-lg/8 break-words [overflow-wrap:anywhere]',
         footer: 'mt-8'
       }"
     >
@@ -131,26 +134,26 @@ useSeoMeta({
       </template>
 
       <template #title>
-        关注每一次访问，<br>
-        <span class="hero-title-line text-primary">改善 Web 应用体验</span>
+        {{ t('home.hero.titleBefore') }}<br>
+        <span class="hero-title-line text-primary">{{ t('home.hero.titleAccent') }}</span>
       </template>
 
       <template #description>
-        用一段轻量 SDK 统一采集真实访问、核心性能指标、前端错误与业务事件。从发现问题到验证优化，每一步都有真实用户数据作为依据。
+        {{ t('home.hero.description') }}
       </template>
 
       <div class="hero-dashboard relative mx-auto w-full max-w-xl">
         <div class="mb-6 flex items-center justify-between">
           <div>
             <p class="text-[11px] font-semibold tracking-[0.16em] text-muted uppercase">
-              Live experience
+              {{ t('home.hero.liveExperience') }}
             </p>
             <h2 class="mt-1.5 text-base font-semibold text-highlighted sm:text-lg">
-              真实用户体验概览
+              {{ t('home.hero.overview') }}
             </h2>
           </div>
           <UBadge
-            label="示例 · 实时视图"
+            :label="t('home.hero.sample')"
             color="primary"
             variant="subtle"
           />
@@ -158,19 +161,19 @@ useSeoMeta({
 
         <div class="grid grid-cols-3 gap-2.5 sm:gap-3">
           <div class="hero-stat">
-            <p>今日访问</p>
+            <p>{{ t('home.hero.visitsToday') }}</p>
             <strong>12,846</strong>
             <span class="text-success">↑ 18.4%</span>
           </div>
           <div class="hero-stat">
             <p>LCP P75</p>
             <strong>1.82s</strong>
-            <span class="text-success">体验良好</span>
+            <span class="text-success">{{ t('home.hero.good') }}</span>
           </div>
           <div class="hero-stat">
-            <p>错误率</p>
+            <p>{{ t('home.hero.errorRate') }}</p>
             <strong>0.24%</strong>
-            <span>过去 24h</span>
+            <span>{{ t('home.hero.past24h') }}</span>
           </div>
         </div>
 
@@ -198,13 +201,13 @@ useSeoMeta({
           <div class="sdk-bridge__content">
             <header class="home-section__header mb-7!">
               <p class="home-section__eyebrow">
-                5 分钟接入
+                {{ t('home.sdk.eyebrow') }}
               </p>
               <h2 class="home-section__title">
-                一段代码，自动开始采集
+                {{ t('home.sdk.title') }}
               </h2>
               <p class="home-section__description">
-                复制代码并替换 API Key，访问、性能与错误数据就会自动进入平台，无需逐项配置监听器。
+                {{ t('home.sdk.description') }}
               </p>
             </header>
 
@@ -229,13 +232,13 @@ useSeoMeta({
 
             <div class="mt-7 flex flex-wrap gap-3">
               <UButton
-                label="查看完整 SDK 指南"
-                to="/sdk/installation"
+                :label="t('home.sdk.guide')"
+                :to="localePath('/sdk/installation')"
                 trailing-icon="i-lucide-arrow-right"
               />
               <UButton
-                label="5 分钟快速接入"
-                to="/getting-started/quick-start"
+                :label="t('home.sdk.quickStart')"
+                :to="localePath('/getting-started/quick-start')"
                 color="neutral"
                 variant="outline"
               />
@@ -256,7 +259,7 @@ useSeoMeta({
   data-project-key="mk_your_project_key"
 <span class="text-emerald-400">&gt;&lt;/script&gt;</span>
 
-<span class="text-emerald-200/50">// 记录一个关键业务事件</span>
+<span class="text-emerald-200/50">{{ t('home.sdk.codeComment') }}</span>
 window.PulseWatch.track('signup_completed', {
   plan: 'free'
 })</code></pre>
@@ -271,17 +274,17 @@ window.PulseWatch.track('signup_completed', {
         <div class="capability-layout">
           <header class="home-section__header capability-layout__intro">
             <p class="home-section__eyebrow">
-              平台能力
+              {{ t('home.capabilities.eyebrow') }}
             </p>
             <h2 class="home-section__title">
-              四类体验信号，拼出用户真实经历
+              {{ t('home.capabilities.title') }}
             </h2>
             <p class="home-section__description">
-              把访问行为、性能、错误与业务事件串进同一条用户上下文，既能看见发生了什么，也能判断影响了谁、应该先处理什么。
+              {{ t('home.capabilities.description') }}
             </p>
             <UButton
-              label="查看全部平台能力"
-              to="/features/overview"
+              :label="t('home.capabilities.all')"
+              :to="localePath('/features/overview')"
               color="neutral"
               variant="outline"
               trailing-icon="i-lucide-arrow-right"
@@ -309,7 +312,7 @@ window.PulseWatch.track('signup_completed', {
                 <h3>{{ capability.title }}</h3>
                 <p>{{ capability.description }}</p>
                 <span class="capability-card__link">
-                  了解更多
+                  {{ t('home.capabilities.more') }}
                   <UIcon
                     name="i-lucide-arrow-right"
                     class="size-4 transition-transform group-hover:translate-x-1"
@@ -326,13 +329,13 @@ window.PulseWatch.track('signup_completed', {
       <UContainer>
         <header class="home-section__header">
           <p class="home-section__eyebrow">
-            性能指标
+            {{ t('home.performance.eyebrow') }}
           </p>
           <h2 class="home-section__title">
-            从指标变化，找到明确的优化方向
+            {{ t('home.performance.title') }}
           </h2>
           <p class="home-section__description">
-            把“页面很慢”拆成加载、交互、稳定性和服务响应，判断应该优化图片、JavaScript、布局，还是服务端链路。
+            {{ t('home.performance.description') }}
           </p>
         </header>
 
@@ -360,10 +363,10 @@ window.PulseWatch.track('signup_completed', {
 
           <div class="optimization-card">
             <p class="text-xs font-semibold tracking-[0.14em] text-primary">
-              优化闭环
+              {{ t('home.performance.workflow') }}
             </p>
             <h3 class="mt-3 text-xl font-semibold tracking-tight text-highlighted">
-              用数据闭环，验证每一次优化
+              {{ t('home.performance.workflowTitle') }}
             </h3>
             <div class="mt-8 space-y-0">
               <div
@@ -383,8 +386,8 @@ window.PulseWatch.track('signup_completed', {
               </div>
             </div>
             <UButton
-              label="理解全部性能指标"
-              to="/features/performance"
+              :label="t('home.performance.all')"
+              :to="localePath('/features/performance')"
               color="primary"
               variant="soft"
               trailing-icon="i-lucide-arrow-right"
@@ -400,31 +403,31 @@ window.PulseWatch.track('signup_completed', {
         <div class="home-closing__inner">
           <div class="home-closing__content">
             <p class="home-section__eyebrow">
-              免费开始
+              {{ t('home.closing.eyebrow') }}
             </p>
-            <h2>从一个真实网站开始，看见用户正在经历什么</h2>
+            <h2>{{ t('home.closing.title') }}</h2>
             <p>
-              免费版可监控 1 个网站，账号每月包含 200 MB 上下文 data 接收量和 3000 次事件触发。接入 SDK 后即可查看真实访问、性能与错误数据，再按实际需要决定是否升级 PRO。
+              {{ t('home.closing.description') }}
             </p>
           </div>
           <div class="home-closing__action">
             <UBadge
-              label="200 MB data · 3000 次事件 / 月"
+              :label="t('home.closing.quota')"
               icon="i-lucide-database"
               color="primary"
               variant="subtle"
             />
-            <p>无需绑定付款方式 · 不会自动扣费</p>
+            <p>{{ t('home.closing.noCard') }}</p>
             <div class="flex flex-wrap justify-center gap-3 lg:justify-end">
               <UButton
-                label="5 分钟开始接入"
-                to="/getting-started/quick-start"
+                :label="t('home.closing.start')"
+                :to="localePath('/getting-started/quick-start')"
                 trailing-icon="i-lucide-arrow-right"
                 size="lg"
               />
               <UButton
-                label="查看 PRO 方案"
-                to="/membership"
+                :label="t('home.closing.pro')"
+                :to="localePath('/membership')"
                 color="neutral"
                 variant="outline"
                 size="lg"

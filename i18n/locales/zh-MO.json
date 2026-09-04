@@ -1,0 +1,179 @@
+{
+  "site": {
+    "name": "PulseWatch 官方文件",
+    "description": "Web 應用程式效能與用戶體驗監控平台的產品說明、效能指標及瀏覽器 SDK 接入指南。",
+    "ogAlt": "PulseWatch Web 應用程式效能與用戶體驗監控平台官方文件"
+  },
+  "nav": {
+    "docs": "文件",
+    "features": "功能",
+    "performance": "效能指標",
+    "sdk": "SDK",
+    "membership": "會員",
+    "console": "進入管理後台",
+    "sdkDocs": "SDK 文件",
+    "plans": "會員方案",
+    "language": "切換語言"
+  },
+  "docs": {
+    "toc": "本頁內容",
+    "help": "需要協助？",
+    "quickStart": "查看快速開始",
+    "sdkGuide": "SDK 接入指南"
+  },
+  "errors": {
+    "notFound": "找不到此頁面",
+    "title": "頁面不存在",
+    "description": "找不到你要瀏覽的 PulseWatch 文件頁面。"
+  },
+  "home": {
+    "seoTitle": "Web 應用程式效能與用戶體驗監控平台",
+    "seoDescription": "PulseWatch 協助個人開發者及團隊持續監控真實用戶瀏覽、Web 效能、前端錯誤及關鍵業務事件。",
+    "hero": {
+      "headline": "真實用戶監控 · RUM",
+      "titleBefore": "監控網站瀏覽，",
+      "titleAccent": "掌握效能表現",
+      "description": "接入一段輕量 SDK，即可統一收集瀏覽、核心 Web 指標、前端錯誤及業務事件。",
+      "quickStart": "5 分鐘快速接入",
+      "readSdk": "閱讀 SDK 文件",
+      "liveExperience": "Live experience",
+      "overview": "真實用戶體驗概覽",
+      "sample": "示例 · 即時檢視",
+      "visitsToday": "今日瀏覽",
+      "good": "體驗良好",
+      "errorRate": "錯誤率",
+      "past24h": "過去 24h"
+    },
+    "metrics": {
+      "lcp": "主要內容顯示速度",
+      "inp": "互動回應速度",
+      "cls": "頁面視覺穩定性",
+      "ttfb": "伺服器首位元組速度",
+      "lower": "越低越好"
+    },
+    "sdk": {
+      "eyebrow": "5 分鐘接入",
+      "title": "一段程式碼，自動開始收集",
+      "description": "複製程式碼並替換 API Key，瀏覽、效能及錯誤資料便會自動進入平台，無須逐項設定監聽器。",
+      "autoTitle": "自動收集",
+      "autoDescription": "瀏覽、效能及錯誤無須逐項編寫監聽程式碼。",
+      "spaTitle": "SPA 路由識別",
+      "spaDescription": "路由變更時自動建立新的頁面體驗內容。",
+      "privacyTitle": "私隱優先",
+      "privacyDescription": "預設不收集輸入值、密碼、Cookie 及頁面正文。",
+      "guide": "查看完整 SDK 指南",
+      "quickStart": "5 分鐘快速接入",
+      "codeComment": "// 記錄一個關鍵業務事件"
+    },
+    "capabilities": {
+      "eyebrow": "平台能力",
+      "title": "四類體驗訊號，呈現用戶真實經歷",
+      "description": "把瀏覽行為、效能、錯誤及業務事件串連至同一用戶內容，既能看見發生了甚麼，也能判斷影響了誰、應先處理甚麼。",
+      "all": "查看全部平台能力",
+      "more": "了解更多",
+      "analyticsTitle": "瀏覽與用戶洞察",
+      "analyticsDescription": "從瀏覽趨勢、來源、地域及裝置，了解真實用戶如何使用產品。",
+      "performanceTitle": "真實用戶效能",
+      "performanceDescription": "持續觀察核心體驗指標，發現載入緩慢、互動卡頓及頁面跳動。",
+      "errorsTitle": "前端錯誤監控",
+      "errorsDescription": "自動擷取運行時、Promise、資源及介面錯誤，還原問題現場。",
+      "eventsTitle": "業務事件追蹤",
+      "eventsDescription": "呼叫 track() 手動記錄註冊、購買及搜尋等關鍵動作，連接技術體驗與業務結果。"
+    },
+    "performance": {
+      "eyebrow": "效能指標",
+      "title": "從指標變化，找出明確的優化方向",
+      "description": "把「頁面很慢」拆分為載入、互動、穩定性及服務回應，判斷應優化圖片、JavaScript、版面，還是伺服器鏈路。",
+      "contentTitle": "內容顯示",
+      "contentDescription": "判斷頁面何時提供回應，以及主要內容何時真正可見。",
+      "interactionTitle": "互動回應",
+      "interactionDescription": "發現主執行緒阻塞及互動卡頓，定位過重的 JavaScript。",
+      "stabilityTitle": "視覺穩定",
+      "stabilityDescription": "識別圖片、廣告及非同步內容造成的意外版面移動。",
+      "serverTitle": "服務回應",
+      "serverDescription": "分辨問題來自伺服器、網絡鏈路，還是瀏覽器渲染。",
+      "workflow": "優化閉環",
+      "workflowTitle": "以資料閉環驗證每一次優化",
+      "connect": "接入",
+      "connectDescription": "新增網站，複製 SDK 程式碼。",
+      "observe": "觀察",
+      "observeDescription": "按頁面及環境確認影響範圍。",
+      "optimize": "優化",
+      "optimizeDescription": "修正問題，以新資料驗證結果。",
+      "all": "了解全部效能指標"
+    },
+    "closing": {
+      "eyebrow": "免費開始",
+      "title": "從一個真實網站開始，看見用戶正在經歷甚麼",
+      "description": "免費版可監控 1 個網站，帳戶每月包含 200 MB 內容 data 接收量及 3000 次事件觸發。接入 SDK 後即可查看真實瀏覽、效能及錯誤資料，再按實際需要決定是否升級 PRO。",
+      "quota": "200 MB data · 每月 3000 次事件",
+      "noCard": "無須綁定付款方式 · 不會自動扣款",
+      "start": "5 分鐘開始接入",
+      "pro": "查看 PRO 方案"
+    }
+  },
+  "membership": {
+    "seoTitle": "會員與接收量",
+    "seoDescription": "了解 PulseWatch 免費版、PRO 版及私有部署版的適用場景，以及每月接收量和事件觸發規則。",
+    "headline": "會員與接收量",
+    "title": "開通會員，覆蓋更多業務場景",
+    "description": "當網站瀏覽增長、活動上線或產品線增加時，會員可讓監控覆蓋更完整、資料留存更連續、問題定位更從容，把零散異常和波動沉澱成可長期追蹤的營運依據。",
+    "badge": "適合長期營運與規模增長",
+    "open": "進入管理後台開通",
+    "viewPlans": "查看會員方案",
+    "free": {
+      "title": "免費版",
+      "description": "適合個人網站、內部工具及首次體驗真實用戶監控。",
+      "period": "/ 永久",
+      "features": ["可監控 1 個網站", "帳戶每月 200 MB 內容 data 接收量", "帳戶每月 3000 次事件觸發", "瀏覽、效能、錯誤及事件監控", "瀏覽器 SDK 與 SPA 自動追蹤", "基本趨勢及環境分析"],
+      "button": "查看接入指南"
+    },
+    "pro": {
+      "title": "PRO 版",
+      "description": "適合持續營運、需要監控更多網站、更高接收量及更多事件觸發額度的產品。",
+      "period": "/ 月",
+      "badge": "推薦",
+      "features": ["可監控 10 個網站", "帳戶每月 1 GB 內容 data 接收量", "帳戶每月 30000 次事件觸發", "瀏覽、效能、錯誤及事件監控", "瀏覽器 SDK 與 SPA 自動追蹤", "基本趨勢及環境分析", "在管理後台用戶中心自助開通"],
+      "button": "進入管理後台升級",
+      "terms": "在管理後台用戶中心掃碼付款，備註登入電郵並再次確認後立即開通"
+    },
+    "private": {
+      "title": "私有部署版",
+      "description": "提供現有系統原始碼，並協助部署到你的伺服器或私有雲環境。",
+      "period": "/ 一次性",
+      "features": ["交付現有系統原始碼", "協助部署到自有環境", "監控資料保留在自己手中", "適合內聯網及私有雲場景", "完成部署後可長期自主使用"],
+      "button": "電郵查詢部署",
+      "terms": "一次開通，包含原始碼交付及部署協助；業務功能調整不在交付範圍內"
+    },
+    "facts": {
+      "monthlyTitle": "帳戶自然月額度",
+      "monthlyDescription": "內容 data 和事件觸發次數按北京時間自然月統計，新月份會重新開始累計。",
+      "controlledTitle": "費用可控",
+      "controlledDescription": "達到任何一項額度上限後停止接收新資料，不會因超額產生未經確認的費用。",
+      "resetTitle": "重設不返還",
+      "resetDescription": "清除歷史資料不會恢復當月已使用額度，額度會於下一個自然月重設。"
+    },
+    "faq": {
+      "eyebrow": "常見問題",
+      "title": "關於額度與付費",
+      "description": "目前免費、不會自動扣款。PRO 可在管理後台用戶中心自助開通，掃碼付款時必須備註目前登入電郵。",
+      "items": [
+        {"label": "免費的 200 MB 內容 data 如何計算？", "content": "免費帳戶每個自然月預設有 200 MB 內容 data 接收量，PRO 帳戶為每個自然月 1 GB。只統計埋點事件及錯誤事件最終存入資料庫的 data 欄位；瀏覽統計欄位、效能指標數值及事件名稱等結構欄位不計入。"},
+        {"label": "3000 次事件觸發包含哪些資料？", "content": "頁面瀏覽、業務事件、前端錯誤及效能指標四類由伺服器成功接收的記錄，均會合併計入事件觸發次數。免費帳戶每月 3000 次，PRO 帳戶每月 30000 次。"},
+        {"label": "當月額度用完後會怎樣？", "content": "帳戶達到當月內容 data 接收量或事件觸發次數其中一項上限後，平台會停止接收帳戶下網站的新監控資料；已有歷史資料、網站設定及 API Key 不會刪除。升級 PRO 可提升網站數量、內容 data 接收量及事件次數額度。"},
+        {"label": "清除資料會恢復當月額度嗎？", "content": "不會。清除資料只會刪除歷史記錄及報表顯示，不會返還當月已使用的內容 data 接收量或事件觸發次數。額度會於下一個自然月自動重設。"},
+        {"label": "目前會自動扣款嗎？", "content": "不會。免費版無須綁定付款方式，平台不會自動扣款，也不會因超額產生未經確認的費用。PRO 每月 19.9 元，需要你在管理後台用戶中心主動掃碼付款並完成確認。"},
+        {"label": "如何開通 PRO？", "content": "註冊或登入管理後台後進入用戶中心，點擊「升級 PRO」，掃碼付款時備註目前登入電郵，勾選風險確認並手動輸入確認文字後提交。確認成功後帳戶會立即切換為 PRO。"},
+        {"label": "如何減少額度消耗？", "content": "只保留真正有價值的業務事件，避免重複上報；測試環境可關閉自動瀏覽收集或使用獨立監控網站。SDK 亦內置每分鐘上報限制及重複錯誤抑制，以減少異常流量。"}
+      ]
+    },
+    "modal": {
+      "title": "查詢私有部署版",
+      "description": "請以電郵說明你的伺服器環境、域名及預計部署時間，我會協助完成現有系統部署。",
+      "email": "聯絡電郵",
+      "note": "私有部署版包含現有系統原始碼交付及部署協助，業務功能調整不在交付範圍內。",
+      "close": "關閉",
+      "send": "傳送電郵"
+    }
+  }
+}

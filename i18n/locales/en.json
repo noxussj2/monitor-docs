@@ -1,0 +1,179 @@
+{
+  "site": {
+    "name": "PulseWatch Documentation",
+    "description": "Product guides, performance metrics, and Browser SDK integration for the PulseWatch web performance and user experience monitoring platform.",
+    "ogAlt": "Official documentation for the PulseWatch web performance and user experience monitoring platform"
+  },
+  "nav": {
+    "docs": "Docs",
+    "features": "Features",
+    "performance": "Performance",
+    "sdk": "SDK",
+    "membership": "Plans",
+    "console": "Open Console",
+    "sdkDocs": "SDK Docs",
+    "plans": "Plans",
+    "language": "Change language"
+  },
+  "docs": {
+    "toc": "On this page",
+    "help": "Need help?",
+    "quickStart": "View Quick Start",
+    "sdkGuide": "SDK Integration Guide"
+  },
+  "errors": {
+    "notFound": "This page could not be found",
+    "title": "Page not found",
+    "description": "The PulseWatch documentation page you requested could not be found."
+  },
+  "home": {
+    "seoTitle": "Web Performance and User Experience Monitoring",
+    "seoDescription": "PulseWatch helps developers and teams continuously monitor real-user traffic, web performance, frontend errors, and key business events.",
+    "hero": {
+      "headline": "Real User Monitoring · RUM",
+      "titleBefore": "Track Traffic.",
+      "titleAccent": "Track Performance.",
+      "description": "One lightweight SDK captures visits, Web Vitals, frontend errors, and business events.",
+      "quickStart": "Integrate in 5 minutes",
+      "readSdk": "Read the SDK docs",
+      "liveExperience": "Live experience",
+      "overview": "Real-user experience overview",
+      "sample": "Sample · Live view",
+      "visitsToday": "Visits today",
+      "good": "Good",
+      "errorRate": "Error rate",
+      "past24h": "Past 24h"
+    },
+    "metrics": {
+      "lcp": "Main content render speed",
+      "inp": "Interaction responsiveness",
+      "cls": "Visual stability",
+      "ttfb": "Server response time",
+      "lower": "Lower is better"
+    },
+    "sdk": {
+      "eyebrow": "5-minute setup",
+      "title": "One snippet starts automatic collection",
+      "description": "Copy the snippet and replace the API Key. Visit, performance, and error data flows into the platform without configuring individual listeners.",
+      "autoTitle": "Automatic collection",
+      "autoDescription": "Collect visits, performance, and errors without writing separate listeners.",
+      "spaTitle": "SPA route tracking",
+      "spaDescription": "Automatically creates a new page context when the route changes.",
+      "privacyTitle": "Privacy first",
+      "privacyDescription": "Input values, passwords, cookies, and page content are not collected by default.",
+      "guide": "View the complete SDK guide",
+      "quickStart": "5-minute quick start",
+      "codeComment": "// Record a key business event"
+    },
+    "capabilities": {
+      "eyebrow": "Platform capabilities",
+      "title": "Four signals reveal the real user journey",
+      "description": "Connect visits, performance, errors, and business events in one user context to see what happened, who was affected, and what to fix first.",
+      "all": "Explore all capabilities",
+      "more": "Learn more",
+      "analyticsTitle": "Traffic and user insights",
+      "analyticsDescription": "Understand how real users use your product through trends, sources, locations, and devices.",
+      "performanceTitle": "Real-user performance",
+      "performanceDescription": "Continuously monitor experience metrics to find slow loads, laggy interactions, and layout shifts.",
+      "errorsTitle": "Frontend error monitoring",
+      "errorsDescription": "Automatically capture runtime, Promise, resource, and API errors with diagnostic context.",
+      "eventsTitle": "Business event tracking",
+      "eventsDescription": "Call track() to record signups, purchases, searches, and other key actions that connect technical experience to business outcomes."
+    },
+    "performance": {
+      "eyebrow": "Performance metrics",
+      "title": "Turn metric changes into clear optimization targets",
+      "description": "Break “the page is slow” into loading, interaction, stability, and server response so you know whether to optimize images, JavaScript, layout, or the backend path.",
+      "contentTitle": "Content rendering",
+      "contentDescription": "See when the page first responds and when its main content becomes visible.",
+      "interactionTitle": "Interaction response",
+      "interactionDescription": "Find main-thread blocking and laggy interactions caused by heavy JavaScript.",
+      "stabilityTitle": "Visual stability",
+      "stabilityDescription": "Identify unexpected layout shifts caused by images, ads, and asynchronous content.",
+      "serverTitle": "Server response",
+      "serverDescription": "Separate backend and network latency from browser rendering problems.",
+      "workflow": "Optimization loop",
+      "workflowTitle": "Validate every improvement with data",
+      "connect": "Connect",
+      "connectDescription": "Add a website and copy the SDK snippet.",
+      "observe": "Observe",
+      "observeDescription": "Confirm the scope by page and environment.",
+      "optimize": "Optimize",
+      "optimizeDescription": "Fix the issue and validate it with new data.",
+      "all": "Understand every performance metric"
+    },
+    "closing": {
+      "eyebrow": "Start free",
+      "title": "Start with one real website and see what users experience",
+      "description": "The free plan monitors one website and includes 200 MB of context data plus 3,000 events per account each month. Connect the SDK to see real visits, performance, and errors, then upgrade to PRO only when you need it.",
+      "quota": "200 MB data · 3,000 events / month",
+      "noCard": "No payment method required · No automatic charges",
+      "start": "Start in 5 minutes",
+      "pro": "View PRO plan"
+    }
+  },
+  "membership": {
+    "seoTitle": "Plans and Ingestion Limits",
+    "seoDescription": "Compare PulseWatch Free, PRO, and Self-hosted plans and understand monthly data and event limits.",
+    "headline": "Plans and ingestion limits",
+    "title": "Choose a plan that grows with your product",
+    "description": "As traffic, campaigns, and product lines grow, a paid plan keeps monitoring coverage complete, data continuous, and diagnosis manageable—turning isolated anomalies into long-term operational insight.",
+    "badge": "Built for long-term operations and growth",
+    "open": "Upgrade in Console",
+    "viewPlans": "View plans",
+    "free": {
+      "title": "Free",
+      "description": "For personal sites, internal tools, and your first real-user monitoring setup.",
+      "period": "/ forever",
+      "features": ["Monitor 1 website", "200 MB context data per account each month", "3,000 events per account each month", "Visit, performance, error, and event monitoring", "Browser SDK with automatic SPA tracking", "Basic trend and environment analysis"],
+      "button": "View integration guide"
+    },
+    "pro": {
+      "title": "PRO",
+      "description": "For actively operated products that need more websites, data, and events.",
+      "period": "/ month",
+      "badge": "Recommended",
+      "features": ["Monitor up to 10 websites", "1 GB context data per account each month", "30,000 events per account each month", "Visit, performance, error, and event monitoring", "Browser SDK with automatic SPA tracking", "Basic trend and environment analysis", "Self-service activation in the user center"],
+      "button": "Upgrade in Console",
+      "terms": "Scan to pay in the Console user center, include your login email, and complete the confirmation to activate immediately"
+    },
+    "private": {
+      "title": "Self-hosted",
+      "description": "Receive the current system source code and deployment help for your server or private cloud.",
+      "period": "/ one-time",
+      "features": ["Current system source code", "Assisted deployment to your environment", "Keep monitoring data under your control", "Suitable for intranets and private clouds", "Continue operating independently after deployment"],
+      "button": "Email about deployment",
+      "terms": "One-time purchase includes source delivery and deployment assistance; custom feature development is not included"
+    },
+    "facts": {
+      "monthlyTitle": "Calendar-month limits",
+      "monthlyDescription": "Context data and event counts use calendar months in China Standard Time and restart each month.",
+      "controlledTitle": "Predictable cost",
+      "controlledDescription": "New data stops when either limit is reached. Overage never creates an unapproved charge.",
+      "resetTitle": "Deleting data does not restore quota",
+      "resetDescription": "Deleting historical data does not restore used monthly quota; limits reset in the next calendar month."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Limits and billing",
+      "description": "The free plan has no automatic charges. Activate PRO yourself in the Console and include your current login email with the payment.",
+      "items": [
+        {"label": "How is the free 200 MB of context data calculated?", "content": "Free accounts receive 200 MB of context data per calendar month; PRO accounts receive 1 GB. Only the final data field stored for custom events and error events counts. Structural fields such as visit metadata, performance metric values, and event names do not count."},
+        {"label": "What counts toward the 3,000-event limit?", "content": "Page visits, business events, frontend errors, and performance metrics successfully received by the server all count together. Free accounts receive 3,000 events each month and PRO accounts receive 30,000."},
+        {"label": "What happens when a monthly limit is reached?", "content": "When either the context-data or event limit is reached, PulseWatch stops accepting new monitoring data from websites in the account. Existing history, website settings, and API Keys are not deleted. PRO raises the website, context-data, and event limits."},
+        {"label": "Does deleting data restore this month’s quota?", "content": "No. Deleting data removes history and reports but does not return context-data or event quota already used this month. Quotas reset automatically at the start of the next calendar month."},
+        {"label": "Will I be charged automatically?", "content": "No. The free plan requires no payment method, and PulseWatch never creates unapproved overage charges. PRO costs ¥19.9 per month and must be purchased and confirmed manually in the Console user center."},
+        {"label": "How do I activate PRO?", "content": "Register or sign in to the Console, open the user center, and choose Upgrade PRO. Include the current login email with your QR-code payment, accept the risk confirmation, enter the confirmation text, and submit. The account switches to PRO immediately after confirmation."},
+        {"label": "How can I reduce quota usage?", "content": "Keep only valuable business events and avoid duplicate reports. In test environments, disable automatic visit collection or use a separate monitored website. The SDK also limits reports per minute and suppresses duplicate errors."}
+      ]
+    },
+    "modal": {
+      "title": "Ask about self-hosting",
+      "description": "Email your server environment, domain, and expected deployment date. I will help deploy the current system.",
+      "email": "Contact email",
+      "note": "Self-hosting includes the current source code and deployment assistance. Custom feature development is not included.",
+      "close": "Close",
+      "send": "Send email"
+    }
+  }
+}

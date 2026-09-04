@@ -1,23 +1,63 @@
 <script setup lang="ts">
-const { seo } = useAppConfig()
 const config = useRuntimeConfig()
+const { locale, t } = useI18n()
+const localePath = useLocalePath()
+const switchLocalePath = useSwitchLocalePath()
+const localeHead = useLocaleHead({ seo: true })
+const docsCollection = useDocsCollection()
 
-const { data: navigation } = await useAsyncData('navigation', () =>
-  queryCollectionNavigation('docs')
-)
-const { data: files } = useLazyAsyncData('search', () =>
-  queryCollectionSearchSections('docs'),
+const { data: navigation } = await useAsyncData(`navigation-${locale.value}`, () =>
+  queryCollectionNavigation(docsCollection.value),
 {
-  server: false
+  watch: [locale]
+}
+)
+const { data: files } = useLazyAsyncData(`search-${locale.value}`, () =>
+  queryCollectionSearchSections(docsCollection.value),
+{
+  server: false,
+  watch: [locale]
 })
 
-const mainNavigation = [
-  { label: '文档', icon: 'i-lucide-book-open', to: '/getting-started/introduction' },
-  { label: '功能', icon: 'i-lucide-blocks', to: '/features/overview' },
-  { label: '性能指标', icon: 'i-lucide-gauge', to: '/features/performance' },
-  { label: 'SDK', icon: 'i-lucide-code-xml', to: '/sdk/installation' },
-  { label: '会员', icon: 'i-lucide-crown', to: '/membership' }
-]
+function localizeContentPath(path: string) {
+  const [pathname, hash] = path.split('#')
+  const localized = localePath(pathname || '/')
+  return hash ? `${localized}#${hash}` : localized
+}
+
+function localizeNavigation(items: typeof navigation.value): typeof navigation.value {
+  return items?.map(item => ({
+    ...item,
+    path: localizeContentPath(item.path),
+    children: item.children ? localizeNavigation(item.children) : undefined
+  })) || []
+}
+
+const localizedNavigation = computed(() => localizeNavigation(navigation.value))
+const localizedFiles = computed(() => files.value?.map(file => ({
+  ...file,
+  id: localizeContentPath(file.id)
+})))
+
+const mainNavigation = computed(() => [
+  { label: t('nav.docs'), icon: 'i-lucide-book-open', to: localePath('/getting-started/introduction') },
+  { label: t('nav.features'), icon: 'i-lucide-blocks', to: localePath('/features/overview') },
+  { label: t('nav.performance'), icon: 'i-lucide-gauge', to: localePath('/features/performance') },
+  { label: t('nav.sdk'), icon: 'i-lucide-code-xml', to: localePath('/sdk/installation') },
+  { label: t('nav.membership'), icon: 'i-lucide-crown', to: localePath('/membership') }
+])
+
+const availableLocales = [
+  { code: 'zh-CN', label: '简体中文' },
+  { code: 'zh-MO', label: '繁體中文' },
+  { code: 'en', label: 'English' }
+] as const
+
+const languageItems = computed(() => availableLocales.map(item => ({
+  label: item.label,
+  icon: item.code === locale.value ? 'i-lucide-check' : undefined,
+  onSelect: () => navigateTo(switchLocalePath(item.code))
+})))
 
 const { trackEvent } = useMonitorTracking()
 
@@ -29,12 +69,16 @@ function trackEnterConsole() {
   })
 }
 
-useHead({
+useHead(() => ({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { name: 'theme-color', content: '#00a155' }
+    { name: 'theme-color', content: '#00a155' },
+    ...(localeHead.value.meta || [])
   ],
-  link: [{ rel: 'icon', href: '/favicon.ico' }],
+  link: [
+    { rel: 'icon', href: '/favicon.ico' },
+    ...(localeHead.value.link || [])
+  ],
   script: [
     {
       'defer': true,
@@ -43,22 +87,23 @@ useHead({
     }
   ],
   htmlAttrs: {
-    lang: 'zh-CN'
+    ...(localeHead.value.htmlAttrs || {}),
+    lang: locale.value
   }
-})
+}))
 
 useSeoMeta({
-  titleTemplate: title => title ? `${title} · PulseWatch` : 'PulseWatch 官方文档',
-  description: 'Web 应用性能与用户体验监控平台的产品说明、性能指标与浏览器 SDK 接入指南。',
-  ogSiteName: seo?.siteName,
+  titleTemplate: (title?: string) => title ? `${title} · PulseWatch` : t('site.name'),
+  description: () => t('site.description'),
+  ogSiteName: () => t('site.name'),
   ogType: 'website',
   ogImage: `${config.public.siteUrl}/og.png`,
-  ogImageAlt: 'PulseWatch Web 应用性能与用户体验监控平台官方文档',
+  ogImageAlt: () => t('site.ogAlt'),
   twitterCard: 'summary_large_image',
   twitterImage: `${config.public.siteUrl}/og.png`
 })
 
-provide('navigation', navigation)
+provide('navigation', localizedNavigation)
 </script>
 
 <template>
@@ -67,7 +112,7 @@ provide('navigation', navigation)
 
     <UHeader
       title="PulseWatch"
-      to="/"
+      :to="localePath('/')"
     >
       <template #title>
         <span
@@ -81,7 +126,7 @@ provide('navigation', navigation)
         </span>
         <span>PulseWatch</span>
         <UBadge
-          label="文档"
+          :label="t('nav.docs')"
           color="neutral"
           variant="soft"
           size="sm"
@@ -92,9 +137,20 @@ provide('navigation', navigation)
 
       <template #right>
         <UContentSearchButton :collapsed="true" />
+        <UDropdownMenu
+          :items="languageItems"
+          :modal="false"
+        >
+          <UButton
+            icon="i-lucide-languages"
+            color="neutral"
+            variant="ghost"
+            :aria-label="t('nav.language')"
+          />
+        </UDropdownMenu>
         <UColorModeButton />
         <UButton
-          label="进入控制台"
+          :label="t('nav.console')"
           icon="i-lucide-arrow-up-right"
           trailing
           color="neutral"
@@ -139,14 +195,14 @@ provide('navigation', navigation)
 
       <template #right>
         <UButton
-          label="SDK 文档"
-          to="/sdk/installation"
+          :label="t('nav.sdkDocs')"
+          :to="localePath('/sdk/installation')"
           color="neutral"
           variant="link"
         />
         <UButton
-          label="会员方案"
-          to="/membership"
+          :label="t('nav.plans')"
+          :to="localePath('/membership')"
           color="neutral"
           variant="link"
         />
@@ -163,8 +219,8 @@ provide('navigation', navigation)
 
     <ClientOnly>
       <LazyUContentSearch
-        :files="files"
-        :navigation="navigation"
+        :files="localizedFiles"
+        :navigation="localizedNavigation"
       />
     </ClientOnly>
   </UApp>

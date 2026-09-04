@@ -5,15 +5,18 @@ defineProps<{
   error: NuxtError
 }>()
 
-useHead({
+const { locale, t } = useI18n()
+const localePath = useLocalePath()
+
+useHead(() => ({
   htmlAttrs: {
-    lang: 'zh-CN'
+    lang: locale.value
   }
-})
+}))
 
 useSeoMeta({
-  title: '页面不存在',
-  description: '没有找到你要访问的 PulseWatch 文档页面。'
+  title: () => t('errors.title'),
+  description: () => t('errors.description')
 })
 </script>
 
@@ -21,7 +24,7 @@ useSeoMeta({
   <UApp>
     <UError
       :error="error"
-      redirect="/"
+      :redirect="localePath('/')"
     />
   </UApp>
 </template>

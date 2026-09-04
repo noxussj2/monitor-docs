@@ -87,6 +87,8 @@ body {
 
 .hero-title-line {
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .hero-stat {
@@ -368,7 +370,7 @@ body {
 
 .sdk-feature {
   display: grid;
-  grid-template-columns: 2.5rem 1fr;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
   gap: 0.85rem;
   align-items: start;
   padding: 0.85rem;
@@ -404,10 +406,13 @@ body {
 
 .sdk-bridge {
   display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2.5rem;
   align-items: center;
 }
 
+.sdk-bridge > *,
 .sdk-bridge__content {
   min-width: 0;
 }
@@ -487,10 +492,6 @@ body {
 }
 
 @media (min-width: 1024px) {
-  .hero-title-line {
-    white-space: nowrap;
-  }
-
   .sdk-bridge {
     grid-template-columns: minmax(0, 1fr) minmax(25rem, 0.9fr);
     gap: 4rem;
@@ -498,10 +499,6 @@ body {
 
   .capability-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .home-section__title {
-    white-space: nowrap;
   }
 
   .home-closing__action {
