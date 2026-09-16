@@ -2,13 +2,13 @@ interface MonitorTrackOptions {
   path?: string
 }
 
-interface PulseWatchApi {
+interface TraceVistaApi {
   track: (eventName: string, data?: Record<string, unknown>, options?: MonitorTrackOptions) => Promise<boolean>
 }
 
 declare global {
   interface Window {
-    PulseWatch?: PulseWatchApi
+    TraceVista?: TraceVistaApi
   }
 }
 
@@ -18,7 +18,7 @@ export const useMonitorTracking = () => {
       return Promise.resolve(false)
     }
 
-    return window.PulseWatch?.track(eventName, data, options) || Promise.resolve(false)
+    return window.TraceVista?.track(eventName, data, options) || Promise.resolve(false)
   }
 
   return {

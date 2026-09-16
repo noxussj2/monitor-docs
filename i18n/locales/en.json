@@ -1,8 +1,8 @@
 {
   "site": {
-    "name": "PulseWatch Documentation",
-    "description": "Product guides, performance metrics, and Browser SDK integration for the PulseWatch web performance and user experience monitoring platform.",
-    "ogAlt": "Official documentation for the PulseWatch web performance and user experience monitoring platform"
+    "name": "TraceVista Documentation",
+    "description": "Product guides, performance metrics, and Browser SDK integration for the TraceVista web performance and user experience monitoring platform.",
+    "ogAlt": "Official documentation for the TraceVista web performance and user experience monitoring platform"
   },
   "nav": {
     "docs": "Docs",
@@ -24,11 +24,11 @@
   "errors": {
     "notFound": "This page could not be found",
     "title": "Page not found",
-    "description": "The PulseWatch documentation page you requested could not be found."
+    "description": "The TraceVista documentation page you requested could not be found."
   },
   "home": {
     "seoTitle": "Web Performance and User Experience Monitoring",
-    "seoDescription": "PulseWatch helps developers and teams continuously monitor real-user traffic, web performance, frontend errors, and key business events.",
+    "seoDescription": "TraceVista helps developers and teams continuously monitor real-user traffic, web performance, frontend errors, and key business events.",
     "hero": {
       "headline": "Real User Monitoring · RUM",
       "titleBefore": "Track Traffic.",
@@ -114,7 +114,7 @@
   },
   "membership": {
     "seoTitle": "Plans and Ingestion Limits",
-    "seoDescription": "Compare PulseWatch Free, PRO, and Self-hosted plans and understand monthly data and event limits.",
+    "seoDescription": "Compare TraceVista Free, PRO, and Self-hosted plans and understand monthly data and event limits.",
     "headline": "Plans and ingestion limits",
     "title": "Choose a plan that grows with your product",
     "description": "As traffic, campaigns, and product lines grow, a paid plan keeps monitoring coverage complete, data continuous, and diagnosis manageable—turning isolated anomalies into long-term operational insight.",
@@ -160,9 +160,9 @@
       "items": [
         {"label": "How is the free 200 MB of context data calculated?", "content": "Free accounts receive 200 MB of context data per calendar month; PRO accounts receive 1 GB. Only the final data field stored for custom events and error events counts. Structural fields such as visit metadata, performance metric values, and event names do not count."},
         {"label": "What counts toward the 3,000-event limit?", "content": "Page visits, business events, frontend errors, and performance metrics successfully received by the server all count together. Free accounts receive 3,000 events each month and PRO accounts receive 30,000."},
-        {"label": "What happens when a monthly limit is reached?", "content": "When either the context-data or event limit is reached, PulseWatch stops accepting new monitoring data from websites in the account. Existing history, website settings, and API Keys are not deleted. PRO raises the website, context-data, and event limits."},
+        {"label": "What happens when a monthly limit is reached?", "content": "When either the context-data or event limit is reached, TraceVista stops accepting new monitoring data from websites in the account. Existing history, website settings, and API Keys are not deleted. PRO raises the website, context-data, and event limits."},
         {"label": "Does deleting data restore this month’s quota?", "content": "No. Deleting data removes history and reports but does not return context-data or event quota already used this month. Quotas reset automatically at the start of the next calendar month."},
-        {"label": "Will I be charged automatically?", "content": "No. The free plan requires no payment method, and PulseWatch never creates unapproved overage charges. PRO costs ¥19.9 per month and must be purchased and confirmed manually in the Console user center."},
+        {"label": "Will I be charged automatically?", "content": "No. The free plan requires no payment method, and TraceVista never creates unapproved overage charges. PRO costs ¥19.9 per month and must be purchased and confirmed manually in the Console user center."},
         {"label": "How do I activate PRO?", "content": "Register or sign in to the Console, open the user center, and choose Upgrade PRO. Include the current login email with your QR-code payment, accept the risk confirmation, enter the confirmation text, and submit. The account switches to PRO immediately after confirmation."},
         {"label": "How can I reduce quota usage?", "content": "Keep only valuable business events and avoid duplicate reports. In test environments, disable automatic visit collection or use a separate monitored website. The SDK also limits reports per minute and suppresses duplicate errors."}
       ]

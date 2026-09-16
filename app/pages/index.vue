@@ -260,7 +260,7 @@ useSeoMeta({
 <span class="text-emerald-400">&gt;&lt;/script&gt;</span>
 
 <span class="text-emerald-200/50">{{ t('home.sdk.codeComment') }}</span>
-window.PulseWatch.track('signup_completed', {
+window.TraceVista.track('signup_completed', {
   plan: 'free'
 })</code></pre>
             </div>

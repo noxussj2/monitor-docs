@@ -1,8 +1,8 @@
 {
   "site": {
-    "name": "PulseWatch 官方文档",
+    "name": "TraceVista 官方文档",
     "description": "Web 应用性能与用户体验监控平台的产品说明、性能指标与浏览器 SDK 接入指南。",
-    "ogAlt": "PulseWatch Web 应用性能与用户体验监控平台官方文档"
+    "ogAlt": "TraceVista Web 应用性能与用户体验监控平台官方文档"
   },
   "nav": {
     "docs": "文档",
@@ -24,11 +24,11 @@
   "errors": {
     "notFound": "没有找到这个页面",
     "title": "页面不存在",
-    "description": "没有找到你要访问的 PulseWatch 文档页面。"
+    "description": "没有找到你要访问的 TraceVista 文档页面。"
   },
   "home": {
     "seoTitle": "Web 应用性能与用户体验监控平台",
-    "seoDescription": "PulseWatch 帮助个人开发者和团队持续监控真实用户访问、Web 性能、前端错误和关键业务事件。",
+    "seoDescription": "TraceVista 帮助个人开发者和团队持续监控真实用户访问、Web 性能、前端错误和关键业务事件。",
     "hero": {
       "headline": "真实用户监控 · RUM",
       "titleBefore": "监控网站访问，",
@@ -114,7 +114,7 @@
   },
   "membership": {
     "seoTitle": "会员与接收量",
-    "seoDescription": "了解 PulseWatch 免费版、PRO 版和私有部署版的适用场景，以及每月接收量和事件触发规则。",
+    "seoDescription": "了解 TraceVista 免费版、PRO 版和私有部署版的适用场景，以及每月接收量和事件触发规则。",
     "headline": "会员与接收量",
     "title": "开通会员，覆盖更多业务场景",
     "description": "当站点访问增长、活动上线或产品线变多时，会员可以让监控覆盖更完整、数据留存更连续、问题定位更从容。把零散的异常和波动沉淀成长期可追踪的运营依据。",

@@ -128,7 +128,7 @@ export default defineNuxtConfig({
     ],
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'pulsewatch_docs_locale',
+      cookieKey: 'tracevista_docs_locale',
       redirectOn: 'root',
       fallbackLocale: 'zh-CN'
     },
@@ -143,11 +143,11 @@ export default defineNuxtConfig({
 
   llms: {
     domain: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-    title: 'PulseWatch 官方文档',
+    title: 'TraceVista 官方文档',
     description: 'Web 应用性能与用户体验监控平台的产品说明、性能指标与浏览器 SDK 接入指南',
     full: {
-      title: 'PulseWatch 完整官方文档',
-      description: 'PulseWatch 产品、指标、SDK、隐私与额度规则的完整文档'
+      title: 'TraceVista 完整官方文档',
+      description: 'TraceVista 产品、指标、SDK、隐私与额度规则的完整文档'
     },
     sections: [
       {

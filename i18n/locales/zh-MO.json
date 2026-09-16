@@ -1,8 +1,8 @@
 {
   "site": {
-    "name": "PulseWatch 官方文件",
+    "name": "TraceVista 官方文件",
     "description": "Web 應用程式效能與用戶體驗監控平台的產品說明、效能指標及瀏覽器 SDK 接入指南。",
-    "ogAlt": "PulseWatch Web 應用程式效能與用戶體驗監控平台官方文件"
+    "ogAlt": "TraceVista Web 應用程式效能與用戶體驗監控平台官方文件"
   },
   "nav": {
     "docs": "文件",
@@ -24,11 +24,11 @@
   "errors": {
     "notFound": "找不到此頁面",
     "title": "頁面不存在",
-    "description": "找不到你要瀏覽的 PulseWatch 文件頁面。"
+    "description": "找不到你要瀏覽的 TraceVista 文件頁面。"
   },
   "home": {
     "seoTitle": "Web 應用程式效能與用戶體驗監控平台",
-    "seoDescription": "PulseWatch 協助個人開發者及團隊持續監控真實用戶瀏覽、Web 效能、前端錯誤及關鍵業務事件。",
+    "seoDescription": "TraceVista 協助個人開發者及團隊持續監控真實用戶瀏覽、Web 效能、前端錯誤及關鍵業務事件。",
     "hero": {
       "headline": "真實用戶監控 · RUM",
       "titleBefore": "監控網站瀏覽，",
@@ -114,7 +114,7 @@
   },
   "membership": {
     "seoTitle": "會員與接收量",
-    "seoDescription": "了解 PulseWatch 免費版、PRO 版及私有部署版的適用場景，以及每月接收量和事件觸發規則。",
+    "seoDescription": "了解 TraceVista 免費版、PRO 版及私有部署版的適用場景，以及每月接收量和事件觸發規則。",
     "headline": "會員與接收量",
     "title": "開通會員，覆蓋更多業務場景",
     "description": "當網站瀏覽增長、活動上線或產品線增加時，會員可讓監控覆蓋更完整、資料留存更連續、問題定位更從容，把零散異常和波動沉澱成可長期追蹤的營運依據。",

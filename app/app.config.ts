@@ -19,7 +19,7 @@ export default defineAppConfig({
     }
   },
   seo: {
-    siteName: 'PulseWatch 官方文档',
+    siteName: 'TraceVista 官方文档',
     description: 'Web 应用性能与用户体验监控平台官方文档'
   },
   toc: {

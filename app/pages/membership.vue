@@ -6,7 +6,7 @@ const localePath = useLocalePath()
 const adminConsoleUrl = 'https://apm.noxussj.top'
 const deploymentModalOpen = ref(false)
 const deploymentContactEmail = '632922356@qq.com'
-const deploymentMailto = `mailto:${deploymentContactEmail}?subject=PulseWatch%20私有部署咨询`
+const deploymentMailto = `mailto:${deploymentContactEmail}?subject=TraceVista%20私有部署咨询`
 
 const pricingPlanUi: PricingPlanProps['ui'] = {
   root: 'h-full flex flex-col',

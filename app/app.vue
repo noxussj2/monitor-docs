@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import logoUrl from '~/assets/logo.png'
 const config = useRuntimeConfig()
 const { locale, setLocale, t } = useI18n()
 const localePath = useLocalePath()
@@ -92,7 +93,7 @@ useHead(() => ({
 }))
 
 useSeoMeta({
-  titleTemplate: (title?: string) => title ? `${title} · PulseWatch` : t('site.name'),
+  titleTemplate: (title?: string) => title ? `${title} · TraceVista` : t('site.name'),
   description: () => t('site.description'),
   ogSiteName: () => t('site.name'),
   ogType: 'website',
@@ -110,7 +111,7 @@ provide('navigation', localizedNavigation)
     <NuxtLoadingIndicator color="var(--ui-primary)" />
 
     <UHeader
-      title="PulseWatch"
+      title="TraceVista"
       :to="localePath('/')"
     >
       <template #title>
@@ -118,12 +119,9 @@ provide('navigation', localizedNavigation)
           class="brand-mark"
           aria-hidden="true"
         >
-          <UIcon
-            name="i-lucide-activity"
-            class="size-5"
-          />
+          <img :src="logoUrl" alt="" class="size-8 object-contain" />
         </span>
-        <span>PulseWatch</span>
+        <span>TraceVista</span>
         <UBadge
           :label="t('nav.docs')"
           color="neutral"
@@ -183,12 +181,9 @@ provide('navigation', localizedNavigation)
             class="brand-mark brand-mark--small"
             aria-hidden="true"
           >
-            <UIcon
-              name="i-lucide-activity"
-              class="size-4"
-            />
+            <img :src="logoUrl" alt="" class="size-6 object-contain" />
           </span>
-          <span>© {{ new Date().getFullYear() }} PulseWatch</span>
+          <span>© {{ new Date().getFullYear() }} TraceVista</span>
         </div>
       </template>
 

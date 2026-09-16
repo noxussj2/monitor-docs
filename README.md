@@ -1,4 +1,6 @@
-# PulseWatch 官方文档
+# TraceVista 官方文档
+
+> 运行环境要求：Node.js **22.9.0**、npm **10.8.3**（必须使用此版本）。
 
 Web 应用性能与用户体验监控平台的公开文档站，基于 Nuxt 3、Nuxt UI Pro 与 Nuxt Content 构建。
 

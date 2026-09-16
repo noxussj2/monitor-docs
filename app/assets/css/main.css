@@ -42,8 +42,7 @@ body {
   justify-content: center;
   border-radius: 0.65rem;
   color: white;
-  background: #00a155;
-  box-shadow: 0 8px 22px rgb(0 161 85 / 24%);
+  background: transparent;
 }
 
 .brand-mark--small {
